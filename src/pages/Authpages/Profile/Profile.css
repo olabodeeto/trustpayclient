@@ -1,0 +1,24 @@
+.tp-user-profile{
+    width: 100%;
+    margin: auto;
+    padding: 10px;
+    min-height: 20vh;
+    animation-name: profile;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    transition: all .8s ease;
+}
+
+@keyframes profile {
+    from{ opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  
+
+
+@media (min-width:768px){
+    .tp-user-profile{
+        width: 65% !important;
+    }
+}

@@ -1,0 +1,143 @@
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  font-weight: 200;
+}
+.bgWhite {
+  background: white !important;
+  box-shadow: 0 0px 15px 0px var(--shadow-color);
+}
+
+.logo {
+  padding: 10px 20px;
+  font-size: 25px;
+  font-weight: 800;
+  color: var(--primary-color);
+  float: left;
+}
+
+.header ul {
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.menu {
+  clear: both;
+  background: var(--primary-color);
+  text-align: center;
+  padding: 10px 0;
+  color: white;
+  height: 0vh;
+  transition: all ease 0.8s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu li {
+  padding: 20px 0;
+}
+
+.menuicon {
+  position: relative;
+  padding: 12px 10px;
+  float: right;
+  top: 16px;
+  right: 10px;
+}
+
+.navicon {
+  position: relative;
+  display: block;
+  background: var(--primary-color);
+  width: 20px;
+  padding-left: 5px;
+  height: 4px;
+}
+
+.navicon::before {
+  position: absolute;
+  content: "";
+  display: block;
+  background: var(--primary-color);
+  width: 14px;
+  height: 4px;
+  top: 6px;
+}
+
+.navicon::after {
+  position: absolute;
+  content: "";
+  display: block;
+  background: var(--primary-color);
+  width: 14px;
+  height: 4px;
+  top: -6px;
+}
+
+#checkbox {
+  display: none;
+}
+#checkbox:checked ~ .menu {
+  height: 100vh;
+}
+
+.hero {
+  width: 100%;
+  margin: 0vh auto;
+  min-height: 100vh;
+  padding-top: 10vh;
+  padding-bottom: 20px;
+  background: url("../../../Assets/herobg.png");
+  background-size: contain;
+}
+
+@media (min-width: 1068px) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    z-index: 100;
+  }
+  .logo {
+    margin-left: 60px !important;
+  }
+  .menuicon {
+    display: none;
+  }
+  .menu {
+    height: 80px;
+    flex-direction: row;
+    justify-content: space-between;
+    background: transparent;
+    color: var(--primary-color);
+    position: relative;
+    right: 30px;
+    top: 6px;
+  }
+
+  .menulists {
+    margin-right: 20vw;
+    font-style: normal;
+    font-weight: 400;
+    color: rgb(70, 72, 85);
+  }
+  .menu li {
+    display: inline;
+    padding: 0 10px;
+  }
+  .menubtncontainer {
+    margin-right: 20px;
+  }
+  .logo {
+    position: relative;
+    margin-left: 50px;
+    top: 10px;
+  }
+  .header ul {
+    margin-right: 50px;
+  }
+}

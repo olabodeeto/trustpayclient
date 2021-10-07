@@ -1,0 +1,161 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #4d2ea1;
+  --secondary-color: #5134bb;
+  --tertiary-color: #b0a8f5;
+  --shadow-color: #c3cdda;
+  --debit-color: #fb9474;
+  --action-color: #fb9474;
+  --credit-color: #0dbd65;
+  --pending-color: #d2d52b;
+  --border-color: #e0e2f6;
+  --inputbox-color: #f7f1fd;
+  --placeholder-color: #948e9b;
+  --text-color: #928eac;
+  --primary-bg-color: #e8e9f6;
+}
+.tp-default-btn {
+  padding: 10px 40px;
+  background: white;
+  border-radius: 999px;
+  border: none;
+  font-size: 18px;
+  box-shadow: 0 0px 4px 0px var(--shadow-color);
+  color: var(--primary-color);
+}
+.tp-default-btn:hover {
+  background: #f1eeee;
+  cursor: pointer;
+}
+.tp-default-btn i {
+  font-size: 20px;
+}
+
+.tp-primary-button {
+  width: 100%;
+  display: block;
+  line-height: 40px;
+  padding-left: 5px;
+  margin-bottom: 0px;
+  border: none;
+  background: var(--primary-color);
+  color: white;
+}
+
+.tp-default-btn-sm {
+  padding: 10px 24px;
+  background: var(--action-color);
+  color: black;
+  border-radius: 4px;
+  border: none;
+  font-size: 14px;
+  box-shadow: 0 0px 4px 0px var(--shadow-color);
+}
+
+.balls {
+  animation-name: balls;
+  animation-duration: 14s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes balls {
+  0% {
+    left: 0;
+    background: rgba(88, 30, 205, 0.763);
+  }
+
+  40% {
+    left: 10rem;
+    background: rgba(88, 30, 205, 0.763);
+  }
+
+  80% {
+    top: 10rem;
+    background: rgba(88, 30, 205, 0.763);
+  }
+  100% {
+    left: 0;
+    background: rgba(88, 30, 205, 0.763);
+  }
+}
+
+.ball {
+  animation-name: ball;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes ball {
+  0% {
+    right: 0;
+    background: rgba(114, 11, 187, 0.64);
+  }
+
+  40% {
+    right: 10rem;
+    background: rgba(88, 30, 205, 0.53);
+  }
+
+  80% {
+    top: 10rem;
+    background: rgba(114, 11, 187, 0.64);
+  }
+  100% {
+    right: 0;
+    background: rgba(114, 11, 187, 0.64);
+  }
+}
+
+@media (min-width: 768px) {
+  .balls {
+    animation-name: balls;
+    animation-duration: 12s;
+  }
+  @keyframes balls {
+    0% {
+      left: 10rem;
+      background: rgba(88, 30, 205, 0.763);
+    }
+
+    40% {
+      left: 28rem;
+      background: rgba(88, 30, 205, 0.763);
+    }
+
+    80% {
+      top: 10rem;
+      background: rgba(88, 30, 205, 0.763);
+    }
+    100% {
+      left: 10rem;
+      background: rgba(88, 30, 205, 0.763);
+    }
+  }
+
+  @keyframes ball {
+    0% {
+      right: 10rem;
+      background: rgba(114, 11, 187, 0.352);
+    }
+
+    40% {
+      right: 30rem;
+      background: rgba(88, 30, 205, 0.349);
+    }
+
+    80% {
+      top: 10rem;
+      background: rgba(88, 30, 205, 0.349);
+    }
+    100% {
+      right: 10rem;
+      background: rgba(88, 30, 205, 0.349);
+    }
+  }
+}

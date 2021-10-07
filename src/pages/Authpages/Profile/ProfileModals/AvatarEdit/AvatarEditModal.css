@@ -1,0 +1,47 @@
+.tp-avatareditmodal{
+    position: absolute;
+    top: 40px;
+    padding: 0px 00px 20px 0px;
+    width: 84%;
+    margin: auto;
+    min-height: 40vh;
+    background: white;
+    transition: all .8s ease;
+
+}
+
+.tp-change-avatar-form{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 10vh;
+    border: 5px solid var(--border-color);
+    border-radius: 999px;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+}
+
+.tp-change-avatar-form input[type=file]{
+    margin-top: 40px;
+    position: absolute;
+    width: 85px;
+    height: 60px;
+    
+}
+
+.tp-change-avatar-form img{
+    width: 140px;
+    height: 140px;
+    border-radius: 999px;
+}
+
+
+
+@media (min-width:768px){
+    .tp-avatareditmodal{
+        width: 44%;
+    }
+}

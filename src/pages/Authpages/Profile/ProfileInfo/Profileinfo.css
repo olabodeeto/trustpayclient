@@ -1,0 +1,72 @@
+.tp-profile-body{
+    min-height: 20vh !important;
+    margin-top: 10px;
+  }
+  .tp-profile-body > div{
+    padding: 20px;
+    background: white;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .tp-userinfo-head{
+      margin-bottom: 40px;
+      display: flex;
+  }
+  .tp-userinfo-head h2, h4{
+      color: var( --secondary-color);
+  }
+  .tp-userinfo-head span{
+      margin-left: 10px;
+  }
+
+  .tp-user-verified-badge{
+    color: var(--credit-color);
+  }
+
+  .tp-profile-userinfo p{
+    color: var(--tertiary-color);
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+
+  
+  
+.tp-user-name{
+   font-weight: 400 !important;
+   font-size: 18px !important;
+}
+
+.tp-user-balance-info{
+    margin-top: 10px;
+    padding: 0 5px;
+    display: flex;
+    align-items: center;
+    color: var(--tertiary-color);
+    border: 1px solid var(--action-color);
+    border-radius: 4px;
+}
+.tp-userinfo-balance{
+    display: flex;
+    align-items: center;
+    width: 70%;
+}
+
+
+.tp-userinfo-balance-input{
+    line-height: 40px ;
+    position: relative;
+    left: 2px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--credit-color);
+    border: none;
+    outline-style: none;
+    background: transparent;
+}
+.tp-userinfo-withdraw-link{
+    width: 30%;
+    text-align: right;
+    color: var(--action-color) !important;
+    word-wrap: break-word !important;
+}
