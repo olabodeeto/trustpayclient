@@ -3,6 +3,7 @@ import transactionReducer from "./TransactionSlice";
 import notificationReducer from "./NotificationSlice";
 import userReducer from "./UserSlice";
 import loginReducer from "./LoginSlice";
+import paylinkReducer from "./PaymentlinkSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,5 +11,6 @@ export const store = configureStore({
     notification: notificationReducer,
     user: userReducer,
     isLogin: loginReducer,
+    paylink: paylinkReducer,
   },
 });

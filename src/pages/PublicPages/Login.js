@@ -5,7 +5,7 @@ import Style from "./Styles/Login.module.css";
 import { Home } from "akar-icons";
 import Loader from "../../Helpers/Activity_indicator/Loader";
 import user from "../../Api/User";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../Store/LoginSlice";
 
 export default function Login() {
@@ -15,6 +15,8 @@ export default function Login() {
   const [isLoading, setisLoading] = useState(false);
   const [redir, setredir] = useState(false);
   const dispatch = useDispatch();
+  const paylink = useSelector((state) => state.paylink.payLink);
+  console.log(paylink);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -35,7 +37,9 @@ export default function Login() {
     });
   };
 
-  if (redir) {
+  if (redir && paylink !== null) {
+    return <Redirect to={`/pay/${paylink}`} />;
+  } else if (redir) {
     return <Redirect to="/" />;
   }
 
