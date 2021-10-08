@@ -40,7 +40,7 @@ export default function Createlink() {
   const [showVerifyModal, setshowVerifyModal] = useState(false);
   const [content, setcontent] = useState("");
   const userData = useSelector((state) => state.user.userData);
-  const { email, verificationStatus } = userData;
+  const { email, _id, verificationStatus } = userData;
 
   useEffect(() => {
     window.scroll(0, 0);
@@ -52,7 +52,7 @@ export default function Createlink() {
     validate,
     onSubmit: async (values) => {
       if (verificationStatus) {
-        const userData = { ...values, email };
+        const userData = { ...values, email, _id };
         setisLoading(true);
         const result = await fetch(
           "http://localhost:5000/api/transaction/paymentlink",

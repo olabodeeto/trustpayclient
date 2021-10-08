@@ -16,7 +16,6 @@ export default function Login() {
   const [redir, setredir] = useState(false);
   const dispatch = useDispatch();
   const paylink = useSelector((state) => state.paylink.payLink);
-  console.log(paylink);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -37,10 +36,10 @@ export default function Login() {
     });
   };
 
-  if (redir && paylink !== null) {
-    return <Redirect to={`/pay/${paylink}`} />;
-  } else if (redir) {
+  if (redir && paylink === "") {
     return <Redirect to="/" />;
+  } else if (redir && paylink) {
+    return <Redirect to={`/pay/${paylink}`} />;
   }
 
   return (

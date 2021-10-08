@@ -18,6 +18,7 @@ export default function Pay() {
   };
 
   useEffect(() => {
+    const abortController = new AbortController();
     user.checkLogin().then((res) => {
       if (res.message !== false) {
         setmessage("Pay now");
@@ -25,6 +26,9 @@ export default function Pay() {
         setmessage("Please, login to continue");
       }
     });
+    return () => {
+      abortController.abort();
+    };
   }, []);
   return (
     <div
