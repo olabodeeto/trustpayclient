@@ -1,17 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import uuid from "react-uuid";
 import Header from "../components/Header";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import TransactionList from "./TransactionList";
 import { Link } from "react-router-dom";
+import UserLinks from "../../../components/UserLinks";
+import noti from "../../../Api/Noti";
+import { setNoti } from "../../../Store/NotificationSlice";
 
 export default function Transaction() {
   const notifications = useSelector((state) => state.notification.noti);
+  const userData = useSelector((state) => state.user.userData);
+  const dispatch = useDispatch();
 
   const notifs = notifications.map((noti) => {
-    if (noti.notiType === "Dispatch" && noti.action === false) {
+    if (noti.notiType === "Dispatch" && noti.notiStatus === true) {
       return (
-        <Link key={uuid()} to={`/action/${noti.id}`}>
+        <Link key={uuid()} to={`/action/${noti._id}`}>
           <div
             key={uuid()}
             className="bg-blue-50 flex justify-between border-2 rounded-lg p-4 text-sm mb-2"
@@ -20,24 +25,34 @@ export default function Transaction() {
           </div>
         </Link>
       );
-    } else if (noti.notiType === "Payment" && noti.action === false) {
+    } else if (noti.notiType === "Payment" && noti.notiStatus === true) {
       return (
-        <Link key={uuid()} to={`/action/${noti.id}`}>
+        <Link key={uuid()} to={`/action/${noti._id}`}>
           <div
             key={uuid()}
             className="bg-blue-50 flex justify-between border-2 rounded-lg p-4 text-sm mb-2"
           >
-            <span>Payment received from {noti.sender}, kindly dispatch</span>
+            <span>
+              Payment received from{" "}
+              <span className="text-red-400">{noti.notiSender}</span>. Dispatch
+              action is needed
+            </span>
           </div>
         </Link>
       );
     }
     return noti;
   });
+
+  useEffect(() => {
+    noti.getNewNoti(userData._id).then((data) => {
+      dispatch(setNoti(data.message));
+    });
+  }, [dispatch, userData._id]);
   return (
     <>
       <Header />
-      <div className="bg-indigo-100 h-screen">
+      <div className="bg-indigo-100 h-screen overflow-y-scroll">
         <div
           className="relative w-11/12 md:w-10/12 m-auto border-2 top-10  
         mt-5 py-10 md:px-20 md:mt-14"
@@ -50,17 +65,13 @@ export default function Transaction() {
               <div className="mb-10">
                 <div className="flex justify-between bg-indigo-400 p-4 text-white text-md">
                   Actions
-                  <span>({notifs.length})</span>
+                  <span>({notifications.length})</span>
                 </div>
                 <div className="bg-white">{notifs}</div>
               </div>
 
-              <div>
-                <div className="flex justify-between bg-purple-500 p-4 text-white text-md">
-                  Payment Links
-                  <span>(0)</span>
-                </div>
-                <div className="bg-white p-4"></div>
+              <div className="h-80">
+                <UserLinks />
               </div>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import uuid from "react-uuid";
 import Header from "../components/Header";
 import { useSelector, useDispatch } from "react-redux";
@@ -6,30 +6,51 @@ import { readNoti } from "../../../Store/NotificationSlice";
 import TransactionList from "../Transaction/TransactionList";
 import CurrencyFormat from "react-currency-format";
 import { Cross } from "akar-icons";
+import UserLinks from "../../../components/UserLinks";
+import transaction from "../../../Api/Transaction/Transaction";
+import noti from "../../../Api/Noti";
+import { setNoti } from "../../../Store/NotificationSlice";
+import { setUserLinks } from "../../../Store/UserLinksSlice";
+import { Link } from "react-router-dom";
 
 export default function Dashboard() {
   const [balance] = useState(0);
   const dispatch = useDispatch();
   const notifications = useSelector((state) => state.notification.noti);
   const userData = useSelector((state) => state.user.userData);
-  const notif = notifications.filter((item) => item.read === false);
+
+  const notif = notifications.filter((item) => item.notiRead === false);
   const notifs = notif.map((noti) => (
     <div
       key={uuid()}
       className="bg-blue-50 flex justify-between border-2 rounded-lg p-4 text-sm mb-2"
     >
-      <span>
-        {noti.notiType === "Payment"
-          ? `New payment notification from ${noti.sender}`
-          : `New dispatch notification from ${noti.sender}`}
-      </span>
+      <Link to={`/action/${noti._id}`}>
+        <p>
+          New <span className="text-red-400">{noti.notiType}</span> notification
+          received
+          {/* {noti.notiMessage} */}
+        </p>
+      </Link>
       <Cross
         size={14}
         color="red"
-        onClick={() => dispatch(readNoti(noti.id))}
+        onClick={() => dispatch(readNoti(noti._id))}
       />
     </div>
   ));
+
+  useEffect(() => {
+    transaction.userLinks(userData.email).then((data) => {
+      dispatch(setUserLinks(data.message));
+    });
+  }, [dispatch, userData.email]);
+
+  useEffect(() => {
+    noti.getNewNoti(userData.email).then((data) => {
+      dispatch(setNoti(data.message));
+    });
+  }, [dispatch, userData.email]);
 
   return (
     <>
@@ -67,19 +88,15 @@ export default function Dashboard() {
                     Notifications
                     <span>({notif.length} unread)</span>
                   </div>
-                  <div className="bg-white p-4">{notifs}</div>
+                  <div className="bg-white p-4 max-h-80 overflow-y-scroll">
+                    {notifs}
+                  </div>
                 </div>
               ) : (
                 <></>
               )}
 
-              <div>
-                <div className="flex justify-between bg-purple-500 p-4 text-white text-md">
-                  Payment Links
-                  <span>(0)</span>
-                </div>
-                <div className="bg-white p-4"></div>
-              </div>
+              <UserLinks />
             </div>
           </div>
         </div>

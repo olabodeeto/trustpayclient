@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import Loader from "../../../Helpers/Activity_indicator/Loader";
 import LinkModal from "../../../Helpers/LinkModal";
 import VerificationModal from "../../../Helpers/VerificationModal";
+import transaction from "../../../Api/Transaction/Transaction";
 
 const initialValues = {
   amount: "",
@@ -32,9 +33,6 @@ const validate = (values) => {
 };
 
 export default function Createlink() {
-  // const [amount, setamount] = useState("");
-  // const [clientEmail, setclientEmail] = useState("");
-  // const [description, setdescription] = useState("");
   const [isLoading, setisLoading] = useState(false);
   const [showModal, setshowModal] = useState(false);
   const [showVerifyModal, setshowVerifyModal] = useState(false);
@@ -54,20 +52,10 @@ export default function Createlink() {
       if (verificationStatus) {
         const userData = { ...values, email, _id };
         setisLoading(true);
-        const result = await fetch(
-          "http://localhost:5000/api/transaction/paymentlink",
-          {
-            credentials: "include",
-            method: "POST",
-            headers: { "content-Type": "application/json" },
-            body: JSON.stringify(userData),
-          }
-        );
-        const res = await result.json();
+        const res = await transaction.createLink(userData);
         setisLoading(false);
         setshowModal(true);
         setcontent(res.message);
-        console.log(res);
       } else {
         setshowVerifyModal(true);
       }

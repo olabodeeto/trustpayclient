@@ -1,26 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
+import notis from "../Api/Noti";
 
 const initialState = {
-  noti: [
-    {
-      id: "1",
-      amount: 4000,
-      sender: "Segun",
-      notiType: "Payment",
-      reciever: "Bode",
-      action: false,
-      read: false,
-    },
-    {
-      id: "4",
-      amount: 1000,
-      sender: "John Doe",
-      reciever: "Bode",
-      notiType: "Dispatch",
-      action: false,
-      read: false,
-    },
-  ],
+  noti: [],
 };
 
 export const notificationSlice = createSlice({
@@ -31,17 +13,25 @@ export const notificationSlice = createSlice({
     readNoti: (state, action) => {
       const id = action.payload;
       state.noti.map((p) => {
-        if (p.id === id) {
-          p.read = true;
-          console.log(p.read);
+        if (p._id === id) {
+          notis.readNoti(p._id).then((data) => {
+            console.log(data);
+          });
+
+          p.notiRead = true;
+          console.log(p.notiRead);
           return p;
         }
         return p;
       });
     },
+
+    setNoti: (state, action) => {
+      state.noti = [...action.payload];
+    },
   },
 });
 
-export const { all, readNoti } = notificationSlice.actions;
+export const { all, readNoti, setNoti } = notificationSlice.actions;
 
 export default notificationSlice.reducer;

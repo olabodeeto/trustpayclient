@@ -56,6 +56,30 @@
   box-shadow: 0 0px 4px 0px var(--shadow-color);
 }
 
+.slideup {
+  animation: slideup;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -20rem;
+  margin-bottom: 2rem;
+  opacity: 0;
+}
+
+@keyframes slideup {
+  from {
+    margin-bottom: 2rem;
+    opacity: 0;
+  }
+
+  to {
+    margin-bottom: 40rem;
+    opacity: 1;
+  }
+}
+
 .balls {
   animation-name: balls;
   animation-duration: 14s;

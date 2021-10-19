@@ -6,7 +6,8 @@ import "./Profileinfo.css";
 
 export default function Profileinfo() {
   const userData = useSelector((state) => state.user.userData);
-  const { firstname, lastname, email } = userData;
+  console.log(userData);
+  const { firstname, lastname, email, verificationStatus } = userData;
 
   return (
     <div className="bg-white min-h-full p-5 rounded-lg">
@@ -15,9 +16,11 @@ export default function Profileinfo() {
           <div className="tp-profile-userinfo">
             <div className="flex gap-4 mb-5">
               <h2 className="text-2xl text-gray-400">My profile</h2>
-              <span className="text-green-400">
-                <CircleCheck size={24} />
-              </span>
+              {verificationStatus && (
+                <span className="text-green-400">
+                  <CircleCheck size={24} />
+                </span>
+              )}
             </div>
             <p className="tp-user-name">{`${firstname.toUpperCase()} ${lastname.toUpperCase()}`}</p>
             <p>{email}</p>
@@ -25,7 +28,7 @@ export default function Profileinfo() {
               <div className="tp-userinfo-balance">
                 <Wallet size={24} />
                 <CurrencyFormat
-                  value="400000"
+                  value="0"
                   thousandSeparator={true}
                   prefix={""}
                   className="tp-userinfo-balance-input"

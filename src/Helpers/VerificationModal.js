@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setUserData } from "../Store/UserSlice";
+import user from "../Api/User";
 
 export default function VerificationModal() {
   const [vcodeStatus, setvcodeStatus] = useState(false);
@@ -28,31 +29,24 @@ export default function VerificationModal() {
       try {
         let vCode = num1 + num2 + num3 + num4 + num5;
         let userData = { vCode, name: "verification" };
-        const result = await fetch(
-          "http://localhost:5000/api/user/verifyuser",
-          {
-            credentials: "include",
-            method: "POST",
-            headers: { "content-Type": "application/json" },
-            body: JSON.stringify(userData),
-          }
-        );
-        const res = await result.json();
+
+        const res = await user.verifyAccount(userData); //Calling API for account verification
         if (res.message.verificationStatus) {
           seterror("");
           setvcodeStatus("Account verified successfuly!");
-          console.log(res.message);
           dispatch(setUserData(res.message));
           setTimeout(() => {
             sethidden("hidden");
           }, 2000);
         } else {
+          setvcodeStatus("");
           seterror("Invalid or expired verification code ");
         }
       } catch (err) {
         console.log(err);
       }
     } else {
+      setvcodeStatus("");
       seterror("Invalid entry");
     }
   };
@@ -66,7 +60,7 @@ export default function VerificationModal() {
      bg-white p-4 rounded-lg min-h-96"
       >
         <h1 className="text-center text-28 sm:text-3xl text-gray-500">
-          Kindly verify your account
+          Sorry, you need to verify your account
         </h1>
         <p className="text-center text-sm mt-4 text-gray-400">
           We've sent verification code to your email

@@ -1,22 +1,25 @@
 import React from "react";
-import { Search, Bell, Home, Money, Gear } from "akar-icons";
+import { Search, Bell, Home, Money, Gear, SignOut } from "akar-icons";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Avatar from "../Profile/Avatar/Avatar";
 import Chaticon from "../../../Assets/chat.png";
 import user from "../../../Api/User";
 import "../style/Header.css";
+import { useHistory } from "react-router";
 import { logoutUser } from "../../../Store/LoginSlice";
 
 export default function Header() {
   const notifications = useSelector((state) => state.notification.noti);
-  const notif = notifications.filter((item) => item.action === false);
+  // console.log(notifications);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const logout = () => {
     user.userLogout().then((res) => {
       if (res.message) {
         dispatch(logoutUser());
+        history.push("/login");
       }
     });
   };
@@ -54,7 +57,7 @@ export default function Header() {
             </Link>
 
             <div className="tp-header-tab-icon" onClick={logout}>
-              <i className="fas fa-power-off tp-logout-tab-icon"></i>
+              <SignOut size={2} className="tp-logout-tab-icon" />
             </div>
           </li>
         </ul>
@@ -66,7 +69,7 @@ export default function Header() {
           <div className="relative w-14 ">
             <Link to="/transactions">
               <div className="absolute w-8 h-8 flex justify-center items-center py-2 p-2 bottom-5 left-2  rounded-full bg-purple-700 text-xs text-white">
-                {notif.length}
+                {notifications.length}
               </div>
               <Bell size={24} className="mt-1" />
             </Link>

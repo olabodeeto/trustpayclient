@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   payLink: "",
+  payLinkDetails: {},
 };
 
 export const paymentLinkSlice = createSlice({
@@ -11,9 +12,13 @@ export const paymentLinkSlice = createSlice({
     setPaymentLink: (state, action) => {
       state.payLink = action.payload;
     },
+    setPaymentLinkDetails: (state, action) => {
+      state.payLinkDetails = action.payload;
+    },
   },
 });
 
-export const { setPaymentLink } = paymentLinkSlice.actions;
+export const { setPaymentLink, setPaymentLinkDetails } =
+  paymentLinkSlice.actions;
 
 export default paymentLinkSlice.reducer;

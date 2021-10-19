@@ -1,25 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./components/Header";
-import { useParams } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useParams, useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
+import noti from "../../Api/Noti";
+import uuid from "react-uuid";
+import transaction from "../../Api/Transaction/Transaction";
 
 export default function Action() {
-  const dispatch = useDispatch();
+  const history = useHistory();
   const notifications = useSelector((state) => state.notification.noti);
   const { id } = useParams();
-  const notif = notifications.filter((item) => item.id === id);
+  const [btnText, setbtnText] = useState("Dispatch");
+
+  const handleDispatch = async (transactionID) => {
+    setbtnText("Processing...");
+    const res = await transaction.updateLink(transactionID);
+    if (res.message === "success") {
+      setbtnText("Success !");
+      setTimeout(() => {
+        history.push("/transactions");
+      }, 3000);
+    } else {
+      setbtnText("Failed to dispatch !");
+      setTimeout(() => {
+        history.push("/transactions");
+      }, 3000);
+    }
+  };
+
+  console.log(notifications);
+
+  const notif = notifications.filter((item) => item._id === id);
   const actionTodo = notif.map((el) => {
     if (el.notiType === "Dispatch") {
       return (
-        <div className=" text-gray-500 bg-white p-4 rounded-lg">
+        <div key={uuid()} className=" text-gray-500 bg-white p-4 rounded-lg">
           <p className="text-2xl">
-            Hello, you have a new dispatch notification from{" "}
+            Hello, you have a new dispatch notification from
             <span className="text-red-400">{el.sender}</span>.
           </p>
           <p className="text-sm mt-5">
             Confirm deal only when are you satisfied with what you paid for
           </p>
-          <p className="text-sm ">Click confirm button close this process</p>
+          <p className="text-sm ">
+            Click confirm button below to close this process
+          </p>
           <button
             className="mt-10 bg-purple-700 text-white py-2 px-5 
           flex justify-center w-20 rounded-lg"
@@ -30,10 +55,10 @@ export default function Action() {
       );
     } else if (el.notiType === "Payment") {
       return (
-        <div className=" text-gray-500 bg-white p-4 rounded-lg">
+        <div key={uuid()} className=" text-gray-500 bg-white p-4 rounded-lg">
           <p className="text-2xl">
             Hello, you have a new payment notification from
-            <span className="text-red-400"> {el.sender}</span>.
+            <span className="text-red-400"> {el.notiSender}</span>.
           </p>
           <p className="text-sm mt-5 sm:w-8/12">
             Kindly dispatch goods/service on time. click on dispatch button to
@@ -41,15 +66,22 @@ export default function Action() {
           </p>
           <button
             className="mt-10 bg-purple-700 text-white py-2 px-5 
-          flex justify-center w-20 rounded-lg"
+          flex justify-center  rounded-lg"
+            onClick={() => handleDispatch(el.transactionID)}
           >
-            Dispatch
+            {btnText}
           </button>
         </div>
       );
     }
     return el;
   });
+
+  useEffect(() => {
+    noti.readNoti(id).then((data) => {
+      console.log("noti read");
+    });
+  }, [id]);
   return (
     <>
       <Header />

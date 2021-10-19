@@ -1,29 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import uuid from "react-uuid";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import trans from "../../../Api/Transaction/Transaction";
+import { setTransaction } from "../../../Store/TransactionSlice";
+import currencyFormatter from "currency-formatter";
 
 export default function TransactionList() {
   const transactions = useSelector((state) => state.transaction.trans);
+  const userData = useSelector((state) => state.user.userData);
   const [allTrans, setallTrans] = useState(transactions);
+  const dispatch = useDispatch();
 
   const showCleared = () => {
     const Cleared = transactions.filter(
-      (item) => item.transactionType === "Credit"
+      (item) => item.transactionStatus === "Credit"
     );
     setallTrans(Cleared);
   };
 
   const showPending = () => {
     const Pending = transactions.filter(
-      (item) => item.transactionType === "Pending"
+      (item) => item.transactionStatus === "pending"
     );
     setallTrans(Pending);
   };
 
   const showDebit = () => {
     const Debit = transactions.filter(
-      (item) => item.transactionType === "Debit"
+      (item) => item.reciever === userData.email
     );
     setallTrans(Debit);
   };
@@ -32,29 +37,66 @@ export default function TransactionList() {
     setallTrans(transactions);
   };
 
+  const getAmountColor = (transStatus, sender, text) => {
+    if (transStatus === "pending" && sender === userData._id) {
+      return (
+        <div className="text-yellow-500">
+          {currencyFormatter.format(text, { code: "NGN" })}
+        </div>
+      );
+    } else if (transStatus === "pending" && sender !== userData._id) {
+      return (
+        <div className="text-red-500">
+          {currencyFormatter.format(text, { code: "NGN" })}
+        </div>
+      );
+    } else if (transStatus === "cleared") {
+      return (
+        <div className="text-green-500">
+          {currencyFormatter.format(text, { code: "NGN" })}
+        </div>
+      );
+    }
+  };
+
+  const getTextColor = (transStatus, sender) => {
+    if (transStatus === "pending" && sender === userData._id) {
+      return <div className="text-yellow-500">{transStatus}</div>;
+    } else if (transStatus === "pending" && sender !== userData._id) {
+      return <div className="text-red-500">Debit</div>;
+    } else if (transStatus === "cleared") {
+      return <div className="text-green-500">{transStatus}</div>;
+    }
+  };
+
   const transaction = allTrans.map((item) => (
     <div key={uuid()} className="flex justify-between bg-blue-100 px-2 py-4">
-      <div
-        className={`${item.transactionType === "Credit" && "text-green-700"} ${
-          item.transactionType === "Debit" && "text-red-700"
-        } ${item.transactionType === "Pending" && "text-yellow-500"}`}
-      >
-        {item.amount}
-      </div>
-      <div
-        className={`${item.transactionType === "Credit" && "text-green-700"} ${
-          item.transactionType === "Debit" && "text-red-700"
-        } ${item.transactionType === "Pending" && "text-yellow-500"}`}
-      >
-        {item.transactionType}
-      </div>
+      {getAmountColor(item.transactionStatus, item.sender, item.amount)}
+
+      {getTextColor(item.transactionStatus, item.sender)}
     </div>
   ));
+
+  useEffect(() => {
+    trans.userTransactions(userData._id, userData.email).then((data) => {
+      dispatch(setTransaction(data.message));
+      setallTrans(data.message);
+    });
+  }, [dispatch, userData._id, userData.email]);
+
   return (
     <div className="border p-2 mt-5">
       <p className="font-semibold text-gray-500">Transactions</p>
       <div className="mt-5 flex flex-col gap-2 text-sm h-80 overflow-y-scroll">
-        {transaction}
+        {transaction.length > 0 ? (
+          transaction
+        ) : (
+          <div className="flex justify-center items-center h-full">
+            <h2 className="text-2xl text-gray-300">
+              Your transaction list is empty
+            </h2>
+          </div>
+        )}
       </div>
       <div className="flex gap-1 mt-6 text-sm">
         <button
