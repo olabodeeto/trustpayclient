@@ -11,17 +11,42 @@ export default function Action() {
   const notifications = useSelector((state) => state.notification.noti);
   const { id } = useParams();
   const [btnText, setbtnText] = useState("Dispatch");
+  const [confirmbtnText, setconfirmbtnText] = useState("Confirm");
 
-  const handleDispatch = async (transactionID) => {
+  const handleUpdate = async (transactionID) => {
     setbtnText("Processing...");
     const res = await transaction.updateLink(transactionID);
     if (res.message === "success") {
-      setbtnText("Success !");
+      console.log(res.message, "first call");
+      const feedback = await noti.updateActionNoti(id);
+      if (feedback.message === "success") {
+        setbtnText("Success !");
+        setTimeout(() => {
+          history.push("/transactions");
+        }, 3000);
+      }
+    } else {
+      setbtnText("Failed to dispatch !");
       setTimeout(() => {
         history.push("/transactions");
       }, 3000);
+    }
+  };
+
+  const handleConfirm = async (transactionID) => {
+    setconfirmbtnText("Processing...");
+    const res = await transaction.updateLink(transactionID);
+    if (res.message === "success") {
+      console.log(res.message, "first call");
+      const feedback = await noti.updateActionNoti(id);
+      if (feedback.message === "success") {
+        setconfirmbtnText("Success !");
+        setTimeout(() => {
+          history.push("/transactions");
+        }, 3000);
+      }
     } else {
-      setbtnText("Failed to dispatch !");
+      setconfirmbtnText("Failed to dispatch !");
       setTimeout(() => {
         history.push("/transactions");
       }, 3000);
@@ -37,7 +62,7 @@ export default function Action() {
         <div key={uuid()} className=" text-gray-500 bg-white p-4 rounded-lg">
           <p className="text-2xl">
             Hello, you have a new dispatch notification from
-            <span className="text-red-400">{el.sender}</span>.
+            <span className="text-red-400"> {el.notiSender}</span>.
           </p>
           <p className="text-sm mt-5">
             Confirm deal only when are you satisfied with what you paid for
@@ -47,9 +72,10 @@ export default function Action() {
           </p>
           <button
             className="mt-10 bg-purple-700 text-white py-2 px-5 
-          flex justify-center w-20 rounded-lg"
+          flex justify-center rounded-lg"
+            onClick={() => handleConfirm(el.transactionID)}
           >
-            Confirm
+            {confirmbtnText}
           </button>
         </div>
       );
@@ -67,7 +93,7 @@ export default function Action() {
           <button
             className="mt-10 bg-purple-700 text-white py-2 px-5 
           flex justify-center  rounded-lg"
-            onClick={() => handleDispatch(el.transactionID)}
+            onClick={() => handleUpdate(el.transactionID)}
           >
             {btnText}
           </button>

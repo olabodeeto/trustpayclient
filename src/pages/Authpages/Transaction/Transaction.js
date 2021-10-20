@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import uuid from "react-uuid";
 import Header from "../components/Header";
 import { useSelector, useDispatch } from "react-redux";
@@ -10,10 +10,12 @@ import { setNoti } from "../../../Store/NotificationSlice";
 
 export default function Transaction() {
   const notifications = useSelector((state) => state.notification.noti);
+  const [notiState, setnotiState] = useState([]);
   const userData = useSelector((state) => state.user.userData);
   const dispatch = useDispatch();
+  console.log(notifications);
 
-  const notifs = notifications.map((noti) => {
+  const notifs = notiState.map((noti) => {
     if (noti.notiType === "Dispatch" && noti.notiStatus === true) {
       return (
         <Link key={uuid()} to={`/action/${noti._id}`}>
@@ -45,10 +47,10 @@ export default function Transaction() {
   });
 
   useEffect(() => {
-    noti.getNewNoti(userData._id).then((data) => {
-      dispatch(setNoti(data.message));
+    noti.getNewNoti(userData.email).then((data) => {
+      setnotiState(data.message);
     });
-  }, [dispatch, userData._id]);
+  }, [dispatch, userData.email]);
   return (
     <>
       <Header />

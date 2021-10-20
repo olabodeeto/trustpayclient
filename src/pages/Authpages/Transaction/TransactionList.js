@@ -14,22 +14,24 @@ export default function TransactionList() {
 
   const showCleared = () => {
     const Cleared = transactions.filter(
-      (item) => item.transactionStatus === "Credit"
+      (item) =>
+        item.transactionStatus === "cleared" && item.reciever === userData.email
     );
+    console.log(Cleared);
     setallTrans(Cleared);
   };
 
   const showPending = () => {
     const Pending = transactions.filter(
-      (item) => item.transactionStatus === "pending"
+      (item) =>
+        item.transactionStatus === "pending" ||
+        item.transactionStatus === "dispatch"
     );
     setallTrans(Pending);
   };
 
   const showDebit = () => {
-    const Debit = transactions.filter(
-      (item) => item.reciever === userData.email
-    );
+    const Debit = transactions.filter((item) => item.sender === userData.email);
     setallTrans(Debit);
   };
 
@@ -38,21 +40,33 @@ export default function TransactionList() {
   };
 
   const getAmountColor = (transStatus, sender, text) => {
-    if (transStatus === "pending" && sender === userData._id) {
-      return (
-        <div className="text-yellow-500">
-          {currencyFormatter.format(text, { code: "NGN" })}
-        </div>
-      );
-    } else if (transStatus === "pending" && sender !== userData._id) {
+    if (
+      (transStatus === "pending" && sender === userData.email) ||
+      (transStatus === "dispatch" && sender === userData.email)
+    ) {
       return (
         <div className="text-red-500">
           {currencyFormatter.format(text, { code: "NGN" })}
         </div>
       );
-    } else if (transStatus === "cleared") {
+    } else if (
+      (transStatus === "pending" && sender !== userData.email) ||
+      (transStatus === "dispatch" && sender !== userData.email)
+    ) {
+      return (
+        <div className="text-yellow-500">
+          {currencyFormatter.format(text, { code: "NGN" })}
+        </div>
+      );
+    } else if (transStatus === "cleared" && sender !== userData.email) {
       return (
         <div className="text-green-500">
+          {currencyFormatter.format(text, { code: "NGN" })}
+        </div>
+      );
+    } else if (transStatus === "cleared" && sender === userData.email) {
+      return (
+        <div className="text-red-500">
           {currencyFormatter.format(text, { code: "NGN" })}
         </div>
       );
@@ -60,11 +74,19 @@ export default function TransactionList() {
   };
 
   const getTextColor = (transStatus, sender) => {
-    if (transStatus === "pending" && sender === userData._id) {
-      return <div className="text-yellow-500">{transStatus}</div>;
-    } else if (transStatus === "pending" && sender !== userData._id) {
+    if (
+      (transStatus === "pending" && sender === userData.email) ||
+      (transStatus === "dispatch" && sender === userData.email)
+    ) {
       return <div className="text-red-500">Debit</div>;
-    } else if (transStatus === "cleared") {
+    } else if (
+      (transStatus === "pending" && sender !== userData.email) ||
+      (transStatus === "dispatch" && sender !== userData.email)
+    ) {
+      return <div className="text-yellow-500">{transStatus}</div>;
+    } else if (transStatus === "cleared" && sender === userData.email) {
+      return <div className="black">{transStatus}</div>;
+    } else if (transStatus === "cleared" && sender !== userData.email) {
       return <div className="text-green-500">{transStatus}</div>;
     }
   };
@@ -81,6 +103,7 @@ export default function TransactionList() {
     trans.userTransactions(userData._id, userData.email).then((data) => {
       dispatch(setTransaction(data.message));
       setallTrans(data.message);
+      console.log(data.message);
     });
   }, [dispatch, userData._id, userData.email]);
 

@@ -10,6 +10,7 @@ import PaymentModal from "../../Helpers/PaymentModal";
 
 export default function Pay() {
   const { id } = useParams();
+  console.log(id);
   const [linkDetails, setlinkDetails] = useState("");
   const userData = useSelector((state) => state.user.userData);
   const paymentLinkDetails = useSelector(
