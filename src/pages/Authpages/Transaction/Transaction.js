@@ -6,7 +6,7 @@ import TransactionList from "./TransactionList";
 import { Link } from "react-router-dom";
 import UserLinks from "../../../components/UserLinks";
 import noti from "../../../Api/Noti";
-import { setNoti } from "../../../Store/NotificationSlice";
+// import { setNoti } from "../../../Store/NotificationSlice";
 
 export default function Transaction() {
   const notifications = useSelector((state) => state.notification.noti);
@@ -23,7 +23,7 @@ export default function Transaction() {
             key={uuid()}
             className="bg-blue-50 flex justify-between border-2 rounded-lg p-4 text-sm mb-2"
           >
-            <span> New dispatch, Confirmation action required</span>
+            <span> New dispatch, Confirmation action is required</span>
           </div>
         </Link>
       );

@@ -76,6 +76,23 @@ class User {
     return res;
   }
   //======================================================
+
+  // //================== ACCOUNT BALANCE API CALL ====================
+  async balance(id) {
+    try {
+      const result = await fetch(UserEndpoints.getAccountBalance, {
+        credentials: "include",
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify({ id: id }),
+      });
+      const res = await result.json();
+      return res;
+    } catch (e) {
+      return e;
+    }
+  }
+  //======================================================
 }
 
 let user = new User();

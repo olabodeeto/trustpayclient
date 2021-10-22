@@ -8,6 +8,7 @@ import Profile from "../pages/Authpages/Profile/Profile";
 import Createlink from "../pages/Authpages/CreateLink/Createlink";
 import Pay from "../pages/Authpages/Pay";
 import Verify from "../pages/Authpages/Verify";
+import Settings from "../pages/Authpages/Settings";
 
 export default function AuthNavigations() {
   return (
@@ -20,6 +21,7 @@ export default function AuthNavigations() {
         <Route exact path="/create-link" component={Createlink} />
         <Route exact path="/pay/:id" component={Pay} />
         <Route exact path="/verify" component={Verify} />
+        <Route exact path="/settings" component={Settings} />
         <Route exact path="*" component={Errorpage} />
       </Switch>
     </>

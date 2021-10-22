@@ -38,7 +38,7 @@ export default function Hompage() {
             MAKE PAYMENT WITH TRUST
           </p>
           <p className=" w-10/12 text-3xl sm:text-6xl  text-gray-600 font-extrabold sm:w-6/12 m-auto">
-            Secured wallet built on trust
+            Trusted & Secured way to pay online
           </p>
           <p
             className="w-20 h-20

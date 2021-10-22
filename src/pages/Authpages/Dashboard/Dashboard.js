@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import uuid from "react-uuid";
 import Header from "../components/Header";
 import { useSelector, useDispatch } from "react-redux";
 import { readNoti } from "../../../Store/NotificationSlice";
 import TransactionList from "../Transaction/TransactionList";
-import CurrencyFormat from "react-currency-format";
 import { Cross } from "akar-icons";
 import UserLinks from "../../../components/UserLinks";
 import transaction from "../../../Api/Transaction/Transaction";
@@ -12,9 +11,9 @@ import noti from "../../../Api/Noti";
 import { setNoti } from "../../../Store/NotificationSlice";
 import { setUserLinks } from "../../../Store/UserLinksSlice";
 import { Link } from "react-router-dom";
+import Balance from "./Balance";
 
 export default function Dashboard() {
-  const [balance] = useState(0);
   const dispatch = useDispatch();
   const notifications = useSelector((state) => state.notification.noti);
   const userData = useSelector((state) => state.user.userData);
@@ -62,22 +61,7 @@ export default function Dashboard() {
         >
           <div className="flex flex-col gap-10  md:gap-10 lg:gap-20 md:flex-row">
             <div className="bg-white w-full md:w-7/12 p-2 md:p-5 rounded-lg h-full">
-              <div className="w-full h-40 bg-purple-700 p-2 rounded-lg">
-                <div className="w-full flex justify-between text-gray-50 text-sm">
-                  <span>Balance</span>
-                  <span>{userData.firstname}</span>
-                </div>
-                <div className="flex justify-center items-center mt-10 text-gray-50 text-2xl sm:text-4xl font-bold">
-                  {
-                    <CurrencyFormat
-                      value={balance}
-                      thousandSeparator={true}
-                      prefix={""}
-                      className=" bg-purple-700 w-full outline-none text-center"
-                    />
-                  }
-                </div>
-              </div>
+              <Balance />
               <TransactionList />
             </div>
 
