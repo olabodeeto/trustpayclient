@@ -6,6 +6,8 @@ const UserEndpoints = {
   verifyAccount: `${process.env.REACT_APP_BASE_URL}/user/verifyuser`,
   getAccountBalance: `${process.env.REACT_APP_BASE_URL}/user/balance`,
   cashout: `${process.env.REACT_APP_BASE_URL}/user/cashout`,
+  upload: `${process.env.REACT_APP_BASE_URL}/user/upload`,
+  photo: `${process.env.REACT_APP_BASE_URL}/user/photo`,
 };
 
 export default UserEndpoints;

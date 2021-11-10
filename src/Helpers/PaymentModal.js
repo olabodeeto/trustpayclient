@@ -24,7 +24,7 @@ export default function PaymentModal() {
       className={`${hidden} fixed w-full top-0 h-full z-50  bg-gray-900 bg-opacity-80`}
     >
       <div
-        className="slideup w-11/12 sm:w-10/12 md:w-4/12 m-auto
+        className="slideupp w-11/12 sm:w-10/12 md:w-4/12 m-auto
      bg-white p-4 rounded-lg min-h-96"
       >
         <h1 className="text-center text-28 sm:text-3xl text-gray-500">
@@ -36,7 +36,7 @@ export default function PaymentModal() {
             We have notified {paymentLinkDetails.creator} of this transaction
           </p>
           <div className="mt-20 flex gap-10 justify-center">
-            <Cross size={20} onClick={closeModal} />
+            <Cross size={18} onClick={closeModal} />
           </div>
         </div>
       </div>

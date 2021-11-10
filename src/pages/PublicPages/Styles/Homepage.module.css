@@ -96,6 +96,26 @@
   background-size: contain;
 }
 
+.getStarted {
+  background: url("../../../Assets/bg2.png") no-repeat;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+}
+
+/* .phoneHand {
+  position: absolute;
+  width: 874.54px;
+  height: 350.32px;
+  left: 10px;
+  top: 1024px;
+} */
+
+.downloadsection {
+  background: url("../../../Assets/bg22.png") no-repeat;
+  background-size: cover;
+}
+
 @media (min-width: 1068px) {
   .header {
     display: flex;
@@ -139,5 +159,13 @@
   }
   .header ul {
     margin-right: 50px;
+  }
+
+  .phoneHand {
+    position: absolute;
+    width: 674.54px;
+    height: 450.32px;
+    left: 340px;
+    top: 1124px;
   }
 }

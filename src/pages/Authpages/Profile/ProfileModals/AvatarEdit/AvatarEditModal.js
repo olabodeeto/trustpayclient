@@ -1,30 +1,54 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Sentry } from "react-activity";
 import "./AvatarEditModal.css";
+import { useSelector, useDispatch } from "react-redux";
+import user from "../../../../../Api/User";
+import { setUserData } from "../../../../../Store/UserSlice";
 
 export default function AvatarEditModal({ close }) {
   const [closeModal, setcloseModal] = useState("");
-  const [profilePhoto, setprofilePhoto] = useState("");
+  const [profilePhoto, setprofilePhoto] = useState(null);
+  const [imageupload, setimageupload] = useState(null);
   const [isLoading, setisLoading] = useState(false);
+  const userData = useSelector((state) => state.user.userData);
+  const dispatch = useDispatch();
 
   const handleImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
-      setprofilePhoto(URL.createObjectURL(event.target.files[0]));
+      setimageupload(URL.createObjectURL(event.target.files[0]));
     }
   };
 
-  const handleUpload = () => {
+  const handleUpload = async () => {
     setisLoading(true);
-    setTimeout(() => {
-      setisLoading(false);
-      setcloseModal("tp-display-hide");
-      close(); //to go back to  profile
-    }, 1000);
+    const file = profilePhoto[0];
+    if (file.type === "image/jpeg") {
+      const data = new FormData();
+      data.append("avatar", file);
+      const res = await user.upload(data);
+      if (res.photo) {
+        const bodyData = { photo: res.photo, userid: userData._id };
+        const result = await user.photo(bodyData);
+        if (result.message) {
+          console.log(result.message);
+          dispatch(setUserData(result.message));
+          setTimeout(() => {
+            setisLoading(false);
+            setcloseModal("tp-display-hide");
+            close(); //to go back to  profile
+          }, 1000);
+        }
+      }
+    }
   };
-  console.log(profilePhoto);
+
+  // useEffect(() => {
+  //   setimageupload(URL.createObjectURL(profilePhoto[0]));
+  // }, [profilePhoto]);
+
   return (
     <div className={`tp-modal ${closeModal}`}>
-      <div className="bg-purple-400 p-5">
+      <div className="bg-purple-700 p-5">
         <div className="tp-modal-head">
           <label
             className="tp-modal-btn"
@@ -45,14 +69,17 @@ export default function AvatarEditModal({ close }) {
                 <form className="relative w-full h-full rounded-full">
                   {profilePhoto ? (
                     <img
-                      src={profilePhoto}
+                      src={imageupload}
                       alt=""
                       className="object-cover h-full relative rounded-full"
                     />
                   ) : (
                     <input
                       type="file"
-                      onChange={handleImageChange}
+                      onChange={(e) => {
+                        handleImageChange(e);
+                        setprofilePhoto(e.target.files);
+                      }}
                       className="mt-16 ml-8 w-24"
                     />
                   )}
@@ -60,7 +87,7 @@ export default function AvatarEditModal({ close }) {
               </div>
               <div className="tp-modal-bottom">
                 <button
-                  className="bg-purple-800 text-white py-2 px-5 rounded-lg"
+                  className="bg-purple-900 text-white py-2 px-5 rounded-lg"
                   onClick={handleUpload}
                 >
                   Save

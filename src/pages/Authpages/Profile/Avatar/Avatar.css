@@ -1,36 +1,36 @@
-.tp-profile-avatar{
-    background: var-(--primary-color);
-    padding: 0px;
-    border: 2px solid orange;
-    line-height: 40px;
-    width: 60px;
-    height: 60px;
-    border-radius: 999px;
-    margin-top: 20px !important;
-    margin-bottom: 40px !important;
+.tp-profile-avatar {
+  background: var-(--primary-color);
+  padding: 0px;
+  border: 2px solid orange;
+  line-height: 40px;
+  width: 60px;
+  height: 60px;
+  border-radius: 999px;
+  margin-top: 20px !important;
+  margin-bottom: 40px !important;
 }
 
-.tp-avatar-profile{
-    background: var-(--primary-color);
-    padding: 0px;
-    border: 4px solid var(--border-color);
-    line-height: 40px;
-    width: 120px;
-    height: 120px;
-    border-radius: 999px;
-    margin-top: 20px !important;
-    margin-bottom: 40px !important;
-    position: absolute;
+.tp-avatar-profile {
+  background: var-(--primary-color);
+  padding: 0px;
+  border: 4px solid var(--border-color);
+  line-height: 40px;
+  width: 120px;
+  height: 120px;
+  border-radius: 999px;
+  margin-top: 20px !important;
+  margin-bottom: 40px !important;
+  position: absolute;
 }
 
-.tp-profile-avatar-edit{
-    position: absolute;
-    top: 118px;
-    right: 10px;
-    color: var(--primary-color);
-    background: white;
-    width: 24px;
-    height: 24px;
-    border: 4px solid var(--border-color);
-    border-radius: 999px;
+.tp-profile-avatar-edit {
+  position: absolute;
+  top: 118px;
+  right: 10px;
+  color: var(--primary-color);
+  background: white;
+  width: 24px;
+  height: 24px;
+  border: 4px solid var(--border-color);
+  border-radius: 999px;
 }

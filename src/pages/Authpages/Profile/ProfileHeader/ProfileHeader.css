@@ -1,19 +1,15 @@
-.tp-profile-header{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 10vh;
-    background: white;
-    padding-bottom: 50px;
-    transition: all 2s ease;
-   
+.tp-profile-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 10vh;
+  padding-bottom: 50px;
+  transition: all 2s ease;
 }
 
-
-.tp-profile-avatar-container{
-    width: 120px;
-    height: 120px;
-    position: relative;
-    background: white;
+.tp-profile-avatar-container {
+  width: 120px;
+  height: 120px;
+  position: relative;
 }

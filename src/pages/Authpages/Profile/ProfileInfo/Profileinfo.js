@@ -1,26 +1,56 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { CircleCheck, Wallet } from "akar-icons";
-import CurrencyFormat from "react-currency-format";
+// import CurrencyFormat from "react-currency-format";
 import "./Profileinfo.css";
 import currencyFormatter from "currency-formatter";
 import BankAccModal from "../../../../Helpers/BankAccModal";
+import WithdrawalModal from "../../../../Helpers/WithdrawalModal";
+import user from "../../../../Api/User";
+import transaction from "../../../../Api/Transaction/Transaction";
 
 export default function Profileinfo() {
   const userData = useSelector((state) => state.user.userData);
   const [balance, setbalance] = useState(0);
   const [showBankModal, setshowBankModal] = useState(false);
+  const [showWithdrawModal, setshowWithdrawModal] = useState(false);
+  const [withdrawBtnText, setwithdrawBtnText] = useState("withdraw");
   console.log(userData);
   const { firstname, lastname, email, verificationStatus } = userData;
 
-  const showModal = () => {
+  function showModal() {
     setshowBankModal(!showBankModal);
-    console.log(showBankModal);
-  };
+  }
 
+  function showWModal() {
+    setshowWithdrawModal(!showWithdrawModal);
+  }
+
+  function handleWithdraw() {
+    if (balance > 0) {
+      setshowWithdrawModal(true);
+    } else {
+      setwithdrawBtnText("Insufficient balance");
+    }
+  }
+
+  useEffect(() => {
+    user.balance(userData.email).then((data) => {
+      setbalance(data.message);
+    });
+  }, [userData.email]);
+
+  useEffect(() => {
+    transaction.bankList().then((res) => {
+      console.log(res.json());
+    });
+  }, []);
   return (
     <>
-      {showBankModal && <BankAccModal showModal={showModal} />}
+      {showWithdrawModal && (
+        <WithdrawalModal show={showWModal} balance={balance} />
+      )}
+      {showBankModal && <BankAccModal show={showModal} />}
       <div className="bg-white min-h-full p-5 rounded-lg">
         {userData ? (
           <>
@@ -42,7 +72,13 @@ export default function Profileinfo() {
                     {currencyFormatter.format(balance, { code: "NGN" })}
                   </span>
                 </div>
-                <div className="text-green-400 cursor-pointer">withdraw</div>
+                <div className="cursor-pointer" onClick={handleWithdraw}>
+                  {withdrawBtnText === "Insufficient balance" ? (
+                    <span className="text-red-400 ">{withdrawBtnText}</span>
+                  ) : (
+                    <span className="text-green-400">{withdrawBtnText}</span>
+                  )}
+                </div>
               </div>
             </div>
 
@@ -72,12 +108,16 @@ export default function Profileinfo() {
                   </p>
                 </div>
                 <div>
-                  <button
-                    className="py-2 px-5 bg-purple-600 text-white rounded-lg"
-                    onClick={showModal}
-                  >
-                    Add Bank
-                  </button>
+                  {userData.bankAcc === "empty" ? (
+                    <button
+                      className="py-2 px-5 bg-purple-600 text-white rounded-lg"
+                      onClick={() => showModal(true)}
+                    >
+                      Add Bank
+                    </button>
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
             </div>

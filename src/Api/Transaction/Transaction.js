@@ -58,6 +58,20 @@ class Transaction {
     let data = await res.json();
     return data;
   };
+
+  /*================ FETCH BANKS ======================*/
+  bankList = async () => {
+    let res = await fetch("api.paystack.co/bank", {
+      method: "GET",
+      port: 443,
+      credentials: "include",
+      headers: {
+        Authorization: `Bearer ${process.env.REACT_APP_PAYSTACK_KEY}`,
+      },
+    });
+    let data = await res;
+    return data;
+  };
 }
 
 let transaction = new Transaction();

@@ -77,7 +77,7 @@ class User {
   }
   //======================================================
 
-  // //================== ACCOUNT BALANCE API CALL ====================
+  //================== ACCOUNT BALANCE API CALL ====================
   async balance(id) {
     try {
       const result = await fetch(UserEndpoints.getAccountBalance, {
@@ -93,6 +93,38 @@ class User {
     }
   }
   //======================================================
+
+  //================== IMAGE UPLOAD ====================
+  async upload(data) {
+    try {
+      const result = await fetch(UserEndpoints.upload, {
+        method: "POST",
+        body: data,
+      });
+      const res = await result.json();
+      return res;
+    } catch (e) {
+      return e;
+    }
+  }
+  //====================================================
+
+  //================== IMAGE UPDATE ====================
+  async photo(data) {
+    try {
+      const result = await fetch(UserEndpoints.photo, {
+        credentials: "include",
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const res = await result.json();
+      return res;
+    } catch (e) {
+      return e;
+    }
+  }
+  //====================================================
 }
 
 let user = new User();

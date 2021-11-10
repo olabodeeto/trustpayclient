@@ -75,6 +75,30 @@
   }
 
   to {
+    margin-bottom: 30rem;
+    opacity: 1;
+  }
+}
+
+.slideupp {
+  animation: slideupp;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -20rem;
+  margin-bottom: 2rem;
+  opacity: 0;
+}
+
+@keyframes slideupp {
+  from {
+    margin-bottom: 2rem;
+    opacity: 0;
+  }
+
+  to {
     margin-bottom: 40rem;
     opacity: 1;
   }
@@ -182,4 +206,8 @@
       background: rgba(88, 30, 205, 0.349);
     }
   }
+}
+
+.avatar {
+  @apply object-cover h-full relative rounded-full mt-8 border-2;
 }
