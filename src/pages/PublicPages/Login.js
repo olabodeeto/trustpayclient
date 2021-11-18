@@ -75,7 +75,9 @@ export default function Login() {
                 required
                 onChange={(e) => setpassword(e.target.value)}
               />
-              <p className="text-gray-400 mt-2 mb-2">Forgot password?</p>
+              <Link to="/forgotpassword">
+                <p className="text-gray-400 mt-2 mb-2">Forgot password?</p>
+              </Link>
               <button
                 className="bg-indigo-500 text-white py-3 px-2 w-full rounded-lg outline-none"
                 onClick={handleLogin}

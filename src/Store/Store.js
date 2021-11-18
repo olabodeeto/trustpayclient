@@ -5,6 +5,7 @@ import userReducer from "./UserSlice";
 import loginReducer from "./LoginSlice";
 import paylinkReducer from "./PaymentlinkSlice";
 import userLinksReducer from "./UserLinksSlice";
+import balanceReducer from "./BalanceSlice";
 
 export const store = configureStore({
   reducer: {
@@ -14,5 +15,6 @@ export const store = configureStore({
     isLogin: loginReducer,
     paylink: paylinkReducer,
     userlinks: userLinksReducer,
+    balance: balanceReducer,
   },
 });

@@ -8,6 +8,9 @@ const UserEndpoints = {
   cashout: `${process.env.REACT_APP_BASE_URL}/user/cashout`,
   upload: `${process.env.REACT_APP_BASE_URL}/user/upload`,
   photo: `${process.env.REACT_APP_BASE_URL}/user/photo`,
+  forgotpassword: `${process.env.REACT_APP_BASE_URL}/user/forgotpassword`,
+  bankAccUpdate: `${process.env.REACT_APP_BASE_URL}/user/bankAccUpdate`,
+  withdraw: `${process.env.REACT_APP_BASE_URL}/user/withdraw`,
 };
 
 export default UserEndpoints;

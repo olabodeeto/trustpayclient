@@ -1,34 +1,43 @@
 import UserEndpoints from "./UserEndpoints";
 class User {
-  //================ REGISTER API CALL ====================
-  async createAccount(data) {
-    const result = await fetch(UserEndpoints.register, {
-      credentials: "include",
-      method: "POST",
-      headers: { "content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-    const res = await result.json();
-    return res;
-  }
-  //======================================================
-
-  //================== LOGIN API CALL ====================
-  async loginUser(data) {
+  async apicall(data, endpoint, method) {
     try {
-      const result = await fetch(UserEndpoints.login, {
+      const result = await fetch(endpoint, {
         credentials: "include",
-        method: "POST",
+        method: method,
         headers: { "content-Type": "application/json" },
         body: JSON.stringify(data),
       });
       const res = await result.json();
       return res;
-    } catch (e) {
-      return e;
+    } catch (error) {
+      return error;
     }
   }
+  //================ REGISTER API CALL ====================
+  async createAccount(data) {
+    const result = await this.apicall(data, UserEndpoints.register, "POST");
+    return result;
+  }
   //======================================================
+
+  //================== LOGIN API CALL ====================
+  async loginUser(data) {
+    const result = await this.apicall(data, UserEndpoints.login, "POST");
+    return result;
+  }
+  //======================================================
+
+  //================== FORGOT PASSWORD ====================
+  async forgotpassword(data) {
+    const result = await this.apicall(
+      data,
+      UserEndpoints.forgotpassword,
+      "POST"
+    );
+    return result;
+  }
+  //====================================================
 
   //==================== CHECK AUTH API CALL==============
   async checkLogin() {
@@ -49,18 +58,12 @@ class User {
   //====================VERIFIY ACCOUNT =================
 
   async verifyAccount(data) {
-    try {
-      const result = await fetch(UserEndpoints.verifyAccount, {
-        credentials: "include",
-        method: "POST",
-        headers: { "content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      const res = await result.json();
-      return res;
-    } catch (e) {
-      return e;
-    }
+    const result = await this.apicall(
+      data,
+      UserEndpoints.verifyAccount,
+      "POST"
+    );
+    return result;
   }
 
   //=======================================================
@@ -79,18 +82,19 @@ class User {
 
   //================== ACCOUNT BALANCE API CALL ====================
   async balance(id) {
-    try {
-      const result = await fetch(UserEndpoints.getAccountBalance, {
-        credentials: "include",
-        method: "POST",
-        headers: { "content-Type": "application/json" },
-        body: JSON.stringify({ id: id }),
-      });
-      const res = await result.json();
-      return res;
-    } catch (e) {
-      return e;
-    }
+    const result = await this.apicall(
+      { id: id },
+      UserEndpoints.getAccountBalance,
+      "POST"
+    );
+    return result;
+  }
+  //======================================================
+
+  //================ WITHDRAW API CALL ====================
+  async withdraw(data) {
+    const result = await this.apicall(data, UserEndpoints.withdraw, "POST");
+    return result;
   }
   //======================================================
 
@@ -111,20 +115,21 @@ class User {
 
   //================== IMAGE UPDATE ====================
   async photo(data) {
-    try {
-      const result = await fetch(UserEndpoints.photo, {
-        credentials: "include",
-        method: "POST",
-        headers: { "content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      const res = await result.json();
-      return res;
-    } catch (e) {
-      return e;
-    }
+    const result = await this.apicall(data, UserEndpoints.photo, "POST");
+    return result;
   }
   //====================================================
+
+  //================ BANK DETAILS UPDATE API CALL ====================
+  async bankAccUpdate(data) {
+    const result = await this.apicall(
+      data,
+      UserEndpoints.bankAccUpdate,
+      "POST"
+    );
+    return result;
+  }
+  //======================================================
 }
 
 let user = new User();

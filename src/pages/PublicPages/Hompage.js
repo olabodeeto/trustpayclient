@@ -5,10 +5,12 @@ import googleplayicon from "../../Assets/googleplay.png";
 import appstoreicon from "../../Assets/appstore.png";
 import frame9 from "../../Assets/Frame9.png";
 import abstact from "../../Assets/abstact.png";
-import group2 from "../../Assets/Group2.png";
-import frame13 from "../../Assets/Frame13.png";
+// import group2 from "../../Assets/Group2.png";
+import grp from "../../Assets/grp.png";
+// import frame13 from "../../Assets/Frame13.png";
 import icon22 from "../../Assets/icon22.png";
 import phones from "../../Assets/phones.png";
+import purse from "../../Assets/purse.png";
 import appleicon from "../../Assets/appleicon.png";
 import playstore from "../../Assets/playstore.png";
 import facebook from "../../Assets/facebook.png";
@@ -81,12 +83,15 @@ export default function Hompage() {
       <div className={style.getStarted}>
         <div className="w-10/12 md:w-7/12 m-auto pt-40 md:pt-28">
           <h1 className="text-white text-3xl md:text-5xl font-bold text-center">
-            Welcome to the new era of digital trust payments
+            {/* Welcome to the new era of digital trust payments */}
+            Pay and get paid instantly
           </h1>
           <div className="w-10/12 md:w-7/12 m-auto flex justify-center items-center">
-            <button className="mt-24 bg-purple-900 text-white py-3 px-10 md:px-20 rounded-full">
-              Get started
-            </button>
+            <Link to="/register">
+              <button className="mt-24 bg-purple-900 text-white py-3 px-10 md:px-20 rounded-full">
+                Get started
+              </button>
+            </Link>
           </div>
           <div className="mt-32 w-full md:w-5/12 h-40 m-auto flex justify-center items-center">
             <img
@@ -111,22 +116,22 @@ export default function Hompage() {
             </p>
           </div>
         </div>
-        <div className="w-11/12 md:w-6/12">
-          <img src={group2} alt="" className="w-10/12 h-auto" />
+        <div className="w-11/12 md:w-6/12 flex justify-center mt-10">
+          <img src={grp} alt="" className="w-9/12 md:w-5/12 h-auto" />
         </div>
       </div>
 
       <div className="mt-40 bg-white w-11/12 md:w-10/12 m-auto hidden md:block">
-        <div className="flex flex-col md:flex-row">
+        <div className="flex flex-col md:flex-row mb-20">
           <div className="w-11/12 md:w-6/12">
-            <div className="mt-40">
-              <img src={frame13} alt="" className="w-10/12 h-auto" />
+            <div className="mt-40 flex">
+              <img src={purse} alt="" className="w-8/12 h-auto" />
             </div>
           </div>
           <div className="xl:w-6/12 w-8/12 mt-10">
             <img src={icon22} alt="" className="w-16 h-auto mb-10" />
-            <h1 className="text-4xl lg:w-6/12 md:10/12 mt-28 font-bold text-purple-400">
-              <span className="text-purple-600 mr-2">
+            <h1 className="text-4xl lg:w-6/12 md:10/12 mt-28 font-bold text-gray-400">
+              <span className="text-gray-600 mr-2">
                 EASIEST AND SAFEST WAY OF RECEIVING
               </span>
               PAYMENTS
@@ -144,8 +149,8 @@ export default function Hompage() {
           <div className="w-11/12 md:w-6/12  mt-16 md:mt-20">
             <img src={icon22} alt="" className="w-16 h-auto" />
             <div className="md:mt-28">
-              <h1 className="text-4xl mt-24 md:mt-28 font-bold text-purple-400 flex flex-col md:flex-row">
-                <span className="text-purple-600 mr-2 w-full md:w-6/12">
+              <h1 className="text-4xl mt-24 md:mt-28 font-bold text-gray-400 flex flex-col md:flex-row">
+                <span className="text-gray-600 mr-2 w-full md:w-6/12">
                   EASIEST AND SAFEST WAY OF RECEIVING
                 </span>
                 <span>PAYMENTS</span>
@@ -155,8 +160,8 @@ export default function Hompage() {
               </p>
             </div>
           </div>
-          <div className="mt-20 w-11/12 md:w-6/12">
-            <img src={frame13} alt="" className="w-10/12 h-auto" />
+          <div className="mt-20 w-11/12 md:w-6/12 flex justify-center items-center">
+            <img src={purse} alt="" className="w-10/12 h-auto" />
           </div>
         </div>
       </div>

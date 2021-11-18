@@ -1,18 +1,37 @@
 import React, { useState } from "react";
-// import { useHistory } from "react-router";
+import { useSelector, useDispatch } from "react-redux";
+import { setUserBalance } from "../Store/BalanceSlice";
+
 import { Cross } from "akar-icons";
+import user from "../Api/User";
 
 export default function WithdrawalModal({ show, balance }) {
-  //   const history = useHistory();
-  const [amount, setamount] = useState(0);
+  const userData = useSelector((state) => state.user.userData);
+  // const userBalance = useSelector((state) => state.balance.userBalance);
+  const dispatch = useDispatch();
+  const [amount, setamount] = useState("");
   const [error, seterror] = useState("");
+  const [btnText, setbtnText] = useState("Proceed");
 
-  const handleWithdraw = (e) => {
+  const handleWithdraw = async (e) => {
     e.preventDefault();
-    if (amount > balance) {
+    setbtnText("Processing...");
+    if (parseInt(amount) > balance) {
       seterror("Insufficient balance");
+      setbtnText("Proceed");
     } else {
-      seterror("");
+      const { recipientCode } = userData;
+      const userdetails = { amount, userid: userData.email, recipientCode };
+      const response = await user.withdraw(userdetails);
+      if (response.message) {
+        seterror("");
+        setbtnText("Success!");
+        console.log(response);
+        dispatch(setUserBalance(response.message));
+        setTimeout(() => {
+          show(true);
+        }, 3000);
+      }
     }
   };
 
@@ -23,8 +42,8 @@ export default function WithdrawalModal({ show, balance }) {
           className="slideupp w-11/12 sm:w-10/12 md:w-4/12 m-auto
      bg-white text-gray-500 p-4 rounded-lg min-h-96"
         >
-          <h1 className="text-center sm:text-2xl text-gray-400">
-            WITHDRAW TO BANK ACCOUNT
+          <h1 className="text-center py-3 sm:text-xl text-gray-400">
+            WITHDRAW
           </h1>
 
           <div className="mt-20 w-full relative">
@@ -35,19 +54,19 @@ export default function WithdrawalModal({ show, balance }) {
               <form className="flex flex-col" onSubmit={handleWithdraw}>
                 <input
                   type="text"
-                  inputMode="numeric"
                   placeholder="Amount"
                   required
-                  maxLength="10"
+                  maxLength="6"
+                  value={amount}
                   className="py-3 px-2 bg-indigo-50  mb-2 outline-none text-gray-400"
-                  onChange={(e) => setamount(parseInt(e.target.value))}
+                  onChange={(e) => setamount(e.target.value)}
                 />
                 <button
                   className="bg-purple-600 text-white py-3 px-4 rounded-lg"
                   type="submit"
                   onSubmit={handleWithdraw}
                 >
-                  Proceed
+                  {btnText}
                 </button>
               </form>
             </div>

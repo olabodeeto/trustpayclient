@@ -61,16 +61,65 @@ class Transaction {
 
   /*================ FETCH BANKS ======================*/
   bankList = async () => {
-    let res = await fetch("api.paystack.co/bank", {
+    var myHeaders = new Headers();
+    myHeaders.append(
+      "Authorization",
+      `Bearer ${process.env.REACT_APP_PAYSTACK_KEY}`
+    );
+    // var formdata = new FormData();
+    var requestOptions = {
       method: "GET",
-      port: 443,
-      credentials: "include",
-      headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_PAYSTACK_KEY}`,
-      },
-    });
-    let data = await res;
-    return data;
+      headers: myHeaders,
+      // body: formdata,
+      redirect: "follow",
+    };
+    try {
+      let response = await fetch(
+        "https://api.paystack.co/bank",
+        requestOptions
+      );
+      let data = await response.json();
+      if (data) {
+        return data;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  /*================  BANK ACCOUNT VERIFICATION ======================*/
+  verifyBankAccount = async (data) => {
+    const { accountNumber, bankCode, accountName } = data;
+    var myHeaders = new Headers();
+    myHeaders.append(
+      "Authorization",
+      `Bearer ${process.env.REACT_APP_PAYSTACK_SKEY}`
+    );
+    myHeaders.append("Content-Type", "application/json");
+
+    const accountData = {
+      type: "nuban",
+      name: accountName,
+      description: "trustpay",
+      account_number: accountNumber,
+      bank_code: bankCode,
+      currency: "NGN",
+    };
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: JSON.stringify(accountData),
+      redirect: "follow",
+    };
+
+    const response = await fetch(
+      "https://api.paystack.co/transferrecipient",
+      requestOptions
+    );
+    const result = await response.text();
+    console.log(data);
+    return result;
   };
 }
 

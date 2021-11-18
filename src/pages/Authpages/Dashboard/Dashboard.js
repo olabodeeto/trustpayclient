@@ -7,9 +7,11 @@ import TransactionList from "../Transaction/TransactionList";
 import { Cross } from "akar-icons";
 import UserLinks from "../../../components/UserLinks";
 import transaction from "../../../Api/Transaction/Transaction";
+import user from "../../../Api/User";
 import noti from "../../../Api/Noti";
 import { setNoti } from "../../../Store/NotificationSlice";
 import { setUserLinks } from "../../../Store/UserLinksSlice";
+import { setUserBalance } from "../../../Store/BalanceSlice";
 import { Link } from "react-router-dom";
 import Balance from "./Balance";
 
@@ -50,6 +52,12 @@ export default function Dashboard() {
       dispatch(setNoti(data.message));
     });
   }, [dispatch, userData.email]);
+
+  useEffect(() => {
+    user.balance(userData.email).then((data) => {
+      dispatch(setUserBalance(data.message));
+    });
+  }, [userData.email, dispatch]);
 
   return (
     <>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Sentry } from "react-activity";
 import "./AvatarEditModal.css";
 import { useSelector, useDispatch } from "react-redux";

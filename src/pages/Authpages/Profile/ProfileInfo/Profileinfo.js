@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { CircleCheck, Wallet } from "akar-icons";
-// import CurrencyFormat from "react-currency-format";
 import "./Profileinfo.css";
 import currencyFormatter from "currency-formatter";
 import BankAccModal from "../../../../Helpers/BankAccModal";
 import WithdrawalModal from "../../../../Helpers/WithdrawalModal";
 import user from "../../../../Api/User";
-import transaction from "../../../../Api/Transaction/Transaction";
+import { setUserBalance } from "../../../../Store/BalanceSlice";
 
 export default function Profileinfo() {
   const userData = useSelector((state) => state.user.userData);
-  const [balance, setbalance] = useState(0);
+  const userBalance = useSelector((state) => state.balance.userBalance);
+  // const [balance, setbalance] = useState(0);
   const [showBankModal, setshowBankModal] = useState(false);
   const [showWithdrawModal, setshowWithdrawModal] = useState(false);
   const [withdrawBtnText, setwithdrawBtnText] = useState("withdraw");
-  console.log(userData);
   const { firstname, lastname, email, verificationStatus } = userData;
+  const dispatch = useDispatch();
+
+  console.log(userData);
 
   function showModal() {
     setshowBankModal(!showBankModal);
@@ -27,28 +29,31 @@ export default function Profileinfo() {
   }
 
   function handleWithdraw() {
-    if (balance > 0) {
+    if (
+      userData.accNumber === "empty" ||
+      userData.bankName === "empty" ||
+      userData.recipientCode === "empty"
+    ) {
+      showWModal(true);
+    } else if (userBalance > 1000) {
       setshowWithdrawModal(true);
-    } else {
+    } else if (userBalance > 15 && userBalance < 1000) {
+      setwithdrawBtnText("Minimum withdraw is ₦1,000");
+    } else if (userBalance < 15) {
       setwithdrawBtnText("Insufficient balance");
     }
   }
 
   useEffect(() => {
     user.balance(userData.email).then((data) => {
-      setbalance(data.message);
+      dispatch(setUserBalance(data.message));
     });
-  }, [userData.email]);
+  }, [userData.email, dispatch]);
 
-  useEffect(() => {
-    transaction.bankList().then((res) => {
-      console.log(res.json());
-    });
-  }, []);
   return (
     <>
       {showWithdrawModal && (
-        <WithdrawalModal show={showWModal} balance={balance} />
+        <WithdrawalModal show={showWModal} balance={userBalance} />
       )}
       {showBankModal && <BankAccModal show={showModal} />}
       <div className="bg-white min-h-full p-5 rounded-lg">
@@ -69,13 +74,18 @@ export default function Profileinfo() {
                 <div className="tp-userinfo-balance py-2">
                   <Wallet size={24} className="mr-2" />
                   <span className="text-green-400">
-                    {currencyFormatter.format(balance, { code: "NGN" })}
+                    {currencyFormatter.format(userBalance, { code: "NGN" })}
                   </span>
                 </div>
                 <div className="cursor-pointer" onClick={handleWithdraw}>
-                  {withdrawBtnText === "Insufficient balance" ? (
+                  {withdrawBtnText === "Insufficient balance" && (
                     <span className="text-red-400 ">{withdrawBtnText}</span>
-                  ) : (
+                  )}
+
+                  {withdrawBtnText === "Minimum withdraw is ₦1,000" && (
+                    <span className="text-red-400 ">{withdrawBtnText}</span>
+                  )}
+                  {withdrawBtnText === "withdraw" && (
                     <span className="text-green-400">{withdrawBtnText}</span>
                   )}
                 </div>
@@ -85,7 +95,7 @@ export default function Profileinfo() {
             <div className="mt-10 mb-10">
               <h2 className="2xl text-gray-400">Notification</h2>
               <p>
-                <span className="text-sm">Email, SMS</span>
+                <span className="text-sm">Email</span>
               </p>
             </div>
 
@@ -97,18 +107,26 @@ export default function Profileinfo() {
             </div>
 
             <div className="tp-profile-userinfo">
-              <h2 className="2xl text-gray-400">Bank</h2>
+              <h2 className="2xl text-gray-400 mb-2">Bank Details</h2>
               <div className="flex justify-between">
                 <div>
                   <p>
-                    <span>Access bank</span>
+                    <span className="text-gray-700">
+                      {userData.bankName !== "empty"
+                        ? userData.bankName
+                        : "Bank Name"}
+                    </span>
                   </p>
                   <p>
-                    <span className="text-sm text-gray-800">1234***89</span>
+                    <span className="text-sm text-gray-800">
+                      {userData.accNumber !== "empty"
+                        ? userData.accNumber
+                        : "Account Number"}
+                    </span>
                   </p>
                 </div>
                 <div>
-                  {userData.bankAcc === "empty" ? (
+                  {userData.accNumber === "empty" ? (
                     <button
                       className="py-2 px-5 bg-purple-600 text-white rounded-lg"
                       onClick={() => showModal(true)}

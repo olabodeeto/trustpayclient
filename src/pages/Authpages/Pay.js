@@ -10,7 +10,7 @@ import PaymentModal from "../../Helpers/PaymentModal";
 
 export default function Pay() {
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
   const [linkDetails, setlinkDetails] = useState("");
   const userData = useSelector((state) => state.user.userData);
   const paymentLinkDetails = useSelector(
@@ -28,7 +28,7 @@ export default function Pay() {
     text: "Pay Now",
     onSuccess: () => {
       transaction.updateLink(id).then((data) => {
-        console.log(data);
+        // console.log(data);
       });
       setshowPaymentModal(true);
       console.log("Paystack payment successful, write transaction to DB");
