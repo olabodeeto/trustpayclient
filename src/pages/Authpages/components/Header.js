@@ -16,6 +16,7 @@ export default function Header() {
   const history = useHistory();
 
   const logout = () => {
+    localStorage.removeItem("login");
     user.userLogout().then((res) => {
       if (res.message) {
         dispatch(logoutUser());

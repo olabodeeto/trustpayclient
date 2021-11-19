@@ -32,6 +32,7 @@ export default function Login() {
       } else {
         dispatch(loginUser());
         setredir(true);
+        localStorage.setItem("login", true);
       }
     });
   };
