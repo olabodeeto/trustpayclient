@@ -13,7 +13,7 @@ export default function Login() {
   const [password, setpassword] = useState("");
   const [message, setmessage] = useState("");
   const [isLoading, setisLoading] = useState(false);
-  // const [redir, setredir] = useState(false);
+  const [redir, setredir] = useState(false);
   const dispatch = useDispatch();
   const paylink = useSelector((state) => state.paylink.payLink);
 
@@ -31,16 +31,14 @@ export default function Login() {
         setisLoading(false);
       } else {
         dispatch(loginUser());
-        // setredir(true);
+        setredir(true);
         localStorage.setItem("login", true);
         window.location.href = "/";
       }
     });
   };
 
-  if (paylink === "") {
-    return <Redirect to="/" />;
-  } else if (paylink) {
+  if (redir && paylink) {
     return <Redirect to={`/pay/${paylink}`} />;
   }
 
