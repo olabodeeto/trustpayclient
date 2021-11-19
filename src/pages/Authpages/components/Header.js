@@ -19,8 +19,8 @@ export default function Header() {
     user.userLogout().then((res) => {
       if (res.message) {
         dispatch(logoutUser());
-        history.push("/");
-        localStorage.removeItem("login");
+        localStorage.clear();
+        window.location.href = "/";
       }
     });
   };
