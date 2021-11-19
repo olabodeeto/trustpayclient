@@ -6,14 +6,14 @@ import Avatar from "../Profile/Avatar/Avatar";
 import Chaticon from "../../../Assets/chat.png";
 import user from "../../../Api/User";
 import "../style/Header.css";
-import { useHistory } from "react-router";
+// import { useHistory } from "react-router";
 import { logoutUser } from "../../../Store/LoginSlice";
 
 export default function Header() {
   const notifications = useSelector((state) => state.notification.noti);
   // console.log(notifications);
   const dispatch = useDispatch();
-  const history = useHistory();
+  // const history = useHistory();
 
   const logout = () => {
     user.userLogout().then((res) => {
