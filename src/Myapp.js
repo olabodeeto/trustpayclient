@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import AuthNavigations from "./Navigations/AuthNavigations";
 import PublicNavigations from "./Navigations/PublicNavigations";
@@ -10,7 +10,7 @@ import user from "./Api/User";
 function Myapp() {
   const login = useSelector((state) => state.isLogin.login);
 
-  const [isLoggedIn, setisLoggedIn] = useState(login);
+  // const [isLoggedIn, setisLoggedIn] = useState(login);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,11 +19,11 @@ function Myapp() {
         if (res) {
           if (res.message !== false) {
             dispatch(loginUser());
-            setisLoggedIn(login);
+            // setisLoggedIn(login);
             dispatch(setUserData(res.user));
           } else {
             dispatch(logoutUser());
-            setisLoggedIn(login);
+            // setisLoggedIn(login);
           }
         }
       });
@@ -33,9 +33,7 @@ function Myapp() {
   }, [login, dispatch]);
   return (
     <>
-      <Router>
-        {isLoggedIn ? <AuthNavigations /> : <PublicNavigations />}
-      </Router>
+      <Router>{login ? <AuthNavigations /> : <PublicNavigations />}</Router>
     </>
   );
 }
