@@ -10,7 +10,7 @@ import user from "./Api/User";
 function Myapp() {
   const login = useSelector((state) => state.isLogin.login);
 
-  const [isLoggedIn, setisLoggedIn] = useState(login);
+  const [isLoggedIn, setisLoggedIn] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
