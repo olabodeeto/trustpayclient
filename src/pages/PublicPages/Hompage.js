@@ -66,13 +66,13 @@ export default function Hompage() {
           <div className="mt-48 md:mt-60 m-auto flex gap-4 justify-center">
             <div
               className="flex justify-center items-center 
-              py-2 bg-purple-600 px-8 rounded-full w-44"
+              py-2 md:py-3 bg-purple-600 px-8 rounded-full w-44"
             >
               <img src={googleplayicon} alt="" className="w-6" />
             </div>
             <div
               className="flex justify-center items-center 
-              py-2 bg-purple-600 px-8 rounded-full w-44"
+              py-2 md:py-3 bg-purple-600 px-8 rounded-full w-44"
             >
               <img src={appstoreicon} alt="" className="w-6" />
             </div>
