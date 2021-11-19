@@ -36,7 +36,7 @@ export default function Profileinfo() {
       userData.recipientCode === "empty"
     ) {
       showModal(true);
-    } else if (userData.accNumber !== "empty" && userBalance > 1000) {
+    } else if (userData.accNumber !== "empty" && userBalance > 999) {
       setshowWithdrawModal(true);
     } else if (userBalance > 15 && userBalance < 1000) {
       setwithdrawBtnText("Minimum withdraw is ₦1,000");
