@@ -134,7 +134,8 @@ export default function Pay() {
           </div>
         </div>
       );
-    // } else if (
+    }
+    // else if (
     //   userData._id !== linkDetails.creatorID ||
     //   userData.email !== linkDetails.clientEmail
     // ) {
