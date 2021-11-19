@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import AuthNavigations from "./Navigations/AuthNavigations";
 import PublicNavigations from "./Navigations/PublicNavigations";
 import { useSelector, useDispatch } from "react-redux";
-// import { loginUser, logoutUser } from "./Store/LoginSlice";
+import { logoutUser } from "./Store/LoginSlice";
 import { setUserData } from "./Store/UserSlice";
 import user from "./Api/User";
 
