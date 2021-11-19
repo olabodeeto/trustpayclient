@@ -18,7 +18,7 @@ export default function Profileinfo() {
   const { firstname, lastname, email, verificationStatus } = userData;
   const dispatch = useDispatch();
 
-  console.log(userData);
+  // console.log(userData);
 
   function showModal() {
     setshowBankModal(!showBankModal);
@@ -29,13 +29,14 @@ export default function Profileinfo() {
   }
 
   function handleWithdraw() {
+    console.log(userData.accNumber);
     if (
       userData.accNumber === "empty" ||
       userData.bankName === "empty" ||
       userData.recipientCode === "empty"
     ) {
-      showWModal(true);
-    } else if (userBalance > 1000) {
+      showModal(true);
+    } else if (userData.accNumber !== "empty" && userBalance > 1000) {
       setshowWithdrawModal(true);
     } else if (userBalance > 15 && userBalance < 1000) {
       setwithdrawBtnText("Minimum withdraw is ₦1,000");
