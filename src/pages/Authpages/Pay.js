@@ -134,18 +134,18 @@ export default function Pay() {
           </div>
         </div>
       );
-    } else if (
-      userData._id !== linkDetails.creatorID ||
-      userData.email !== linkDetails.clientEmail
-    ) {
-      return (
-        <div className="w-11/12 md:w-6/12 m-auto p-4 bg-white rounded-lg">
-          <h2 className="text-center text-gray-500 text-2xl">
-            Sorry, you cant use this payment link
-          </h2>
-        </div>
-      );
-    }
+    // } else if (
+    //   userData._id !== linkDetails.creatorID ||
+    //   userData.email !== linkDetails.clientEmail
+    // ) {
+    //   return (
+    //     <div className="w-11/12 md:w-6/12 m-auto p-4 bg-white rounded-lg">
+    //       <h2 className="text-center text-gray-500 text-2xl">
+    //         Sorry, you cant use this payment link
+    //       </h2>
+    //     </div>
+    //   );
+    // }
   };
 
   return (
