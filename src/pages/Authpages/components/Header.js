@@ -19,7 +19,7 @@ export default function Header() {
     user.userLogout().then((res) => {
       if (res.message) {
         dispatch(logoutUser());
-        history.push("/login");
+        history.push("/");
         localStorage.removeItem("login");
       }
     });
