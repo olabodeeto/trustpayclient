@@ -63,16 +63,16 @@ export default function Hompage() {
            rounded-full bg-opacity-30 absolute top-0 ball "
           ></p>
 
-          <div className="mt-60 m-auto flex gap-4 justify-center">
+          <div className="mt-48 md:mt-60 m-auto flex gap-4 justify-center">
             <div
               className="flex justify-center items-center 
-              py-3 bg-purple-600 px-8 rounded-lg w-44"
+              py-3 bg-purple-600 px-8 rounded-full w-44"
             >
               <img src={googleplayicon} alt="" className="w-6" />
             </div>
             <div
               className="flex justify-center items-center 
-              py-3 bg-purple-600 px-8 rounded-lg w-44"
+              py-3 bg-purple-600 px-8 rounded-full w-44"
             >
               <img src={appstoreicon} alt="" className="w-6" />
             </div>
@@ -205,9 +205,11 @@ export default function Hompage() {
           </h1>
 
           <div className="w-10/12 m-auto flex justify-center mt-20">
-            <button className="py-3 px-14 bg-purple-600 text-gray-50 rounded-full">
-              Get started
-            </button>
+            <Link to="/register">
+              <button className="py-3 px-14 bg-purple-600 text-gray-50 rounded-full">
+                Get started
+              </button>
+            </Link>
           </div>
         </div>
         <div className="md:px-10 pt-20 bg-gray-900 flex flex-col justify-center">
