@@ -24,7 +24,7 @@ export default function Hompage() {
       <header className={`${style.header} bg-white`}>
         <input type="checkbox" id={style.checkbox} />
         <div className={style.logo}>
-          trust<span className="text-yellow-500">payme</span>
+          trust<span className="text-yellow-500">pay</span>
         </div>
         <label htmlFor={style.checkbox} className={style.menuicon}>
           <span className={style.navicon}></span>
