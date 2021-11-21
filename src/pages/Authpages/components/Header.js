@@ -1,5 +1,5 @@
 import React from "react";
-import { Search, Bell, Home, Money, Gear, SignOut } from "akar-icons";
+import { Search, Bell, Home, Money, SignOut } from "akar-icons";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Avatar from "../Profile/Avatar/Avatar";
@@ -51,11 +51,11 @@ export default function Header() {
               </div>
             </Link>
 
-            <Link to="/settings">
+            {/* <Link to="/settings">
               <div className="tp-header-tab-icon">
                 <Gear size={2} className="tp-gear-tab-icon" />
               </div>
-            </Link>
+            </Link> */}
 
             <div className="tp-header-tab-icon" onClick={logout}>
               <SignOut size={2} className="tp-logout-tab-icon" />
