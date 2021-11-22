@@ -3,34 +3,37 @@ import { BrowserRouter as Router } from "react-router-dom";
 import AuthNavigations from "./Navigations/AuthNavigations";
 import PublicNavigations from "./Navigations/PublicNavigations";
 import { useSelector, useDispatch } from "react-redux";
-import { logoutUser } from "./Store/LoginSlice";
+import { logoutUser, loginUser } from "./Store/LoginSlice";
 import { setUserData } from "./Store/UserSlice";
 import user from "./Api/User";
 
 function Myapp() {
   const login = useSelector((state) => state.isLogin.login);
+  const localStrg = localStorage.getItem("login");
 
   const [isLoggedIn, setisLoggedIn] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    try {
-      user.checkLogin().then((res) => {
-        if (res) {
-          if (res.message !== false) {
-            // dispatch(loginUser());
-            setisLoggedIn(localStorage.getItem("login"));
-            dispatch(setUserData(res.user));
-          } else {
-            dispatch(logoutUser());
-            setisLoggedIn(false);
+    if (localStrg === "true") {
+      try {
+        user.checkLogin().then((res) => {
+          if (res) {
+            if (res.message !== false) {
+              dispatch(loginUser());
+              setisLoggedIn(login);
+              dispatch(setUserData(res.user));
+            } else {
+              dispatch(logoutUser());
+              setisLoggedIn(false);
+            }
           }
-        }
-      });
-    } catch (error) {
-      console.log(error);
+        });
+      } catch (error) {
+        console.log(error);
+      }
     }
-  }, [login, dispatch]);
+  }, [login, localStrg, dispatch]);
   return (
     <>
       <Router>
