@@ -35,6 +35,7 @@ export default function Hompage() {
             <li>DOWNLOAD</li>
             <li>HELP</li>
             <li>HOW IT WORKS</li>
+            <li>FAQ</li>
           </div>
           <div className={style.menubtncontainer}>
             <Link to="/login">
