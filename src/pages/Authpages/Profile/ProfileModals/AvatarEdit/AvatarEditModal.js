@@ -22,7 +22,7 @@ export default function AvatarEditModal({ close }) {
   const handleUpload = async () => {
     setisLoading(true);
     const file = profilePhoto[0];
-    if (file.type === "image/jpeg") {
+    if (file.type === "image/jpeg" || file.type === "image/png") {
       const data = new FormData();
       data.append("avatar", file);
       const res = await user.upload(data);

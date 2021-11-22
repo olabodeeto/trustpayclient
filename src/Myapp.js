@@ -11,7 +11,7 @@ function Myapp() {
   const login = useSelector((state) => state.isLogin.login);
   const localStrg = localStorage.getItem("login");
 
-  const [isLoggedIn, setisLoggedIn] = useState(false);
+  const [isLoggedIn, setisLoggedIn] = useState(login);
   const dispatch = useDispatch();
 
   useEffect(() => {
