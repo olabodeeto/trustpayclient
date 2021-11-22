@@ -30,7 +30,7 @@ export default function ForgotPassword() {
   return (
     <div className={Style.login}>
       <div className="w-11/12 sm:w-4/12 m-auto bg-white p-5 rounded-lg mt-20">
-        <p className="text-center text-3xl text-indigo-600 font-bold">
+        <p className="text-center text-3xl text-purple-600 font-bold">
           Forgot password
         </p>
 
@@ -46,7 +46,7 @@ export default function ForgotPassword() {
               onChange={(e) => setemail(e.target.value)}
             />
             <button
-              className="bg-indigo-500 text-white py-3 px-2 w-full rounded-lg outline-none"
+              className="bg-purple-600 text-white py-3 px-2 w-full rounded-lg outline-none"
               onClick={handleReset}
             >
               {btnText}

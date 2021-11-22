@@ -90,7 +90,7 @@ export default function Register() {
         <Loader />
       ) : (
         <div className="w-11/12 sm:w-4/12 m-auto bg-white p-5 rounded-lg">
-          <p className="text-center text-3xl text-indigo-600 font-bold">
+          <p className="text-center text-3xl text-purple-600 font-bold">
             Create Account
           </p>
 
@@ -185,7 +185,7 @@ export default function Register() {
               </div>
               <button
                 type="submit"
-                className="bg-indigo-400 text-white py-3 px-2 w-full rounded-lg outline-none mt-5"
+                className="bg-purple-600 text-white py-3 px-2 w-full rounded-lg outline-none mt-5"
               >
                 Create account
               </button>

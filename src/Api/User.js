@@ -103,7 +103,7 @@ class User {
     try {
       const result = await fetch(UserEndpoints.upload, {
         method: "POST",
-        credentials: "include",
+        credentials: "omit",
         body: data,
       });
       const res = await result.json();
