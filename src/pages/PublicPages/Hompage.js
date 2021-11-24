@@ -32,7 +32,7 @@ export default function Hompage() {
         <ul className={style.menu}>
           <div className={style.menulists}>
             <li>HOME</li>
-            <li>Pricing</li>
+            <li>PRICING</li>
             <li>HOW IT WORKS</li>
             <li>FAQ</li>
           </div>
