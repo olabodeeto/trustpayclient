@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import style from "./Styles/Homepage.module.css";
 // import googleplayicon from "../../Assets/googleplay.png";
@@ -19,6 +19,15 @@ import linkedin from "../../Assets/linkedin.png";
 import twitter from "../../Assets/twitter.png";
 
 export default function Hompage() {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "//code.tidio.co/juavsp7xyimuanjgd7uayohnf654etwl.js";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
   return (
     <>
       <header className={`${style.header} bg-white`}>
