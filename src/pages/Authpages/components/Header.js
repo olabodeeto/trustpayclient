@@ -3,7 +3,7 @@ import { Search, Bell, Home, Money, SignOut } from "akar-icons";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Avatar from "../Profile/Avatar/Avatar";
-import Chaticon from "../../../Assets/chat.png";
+// import Chaticon from "../../../Assets/chat.png";
 import user from "../../../Api/User";
 import "../style/Header.css";
 // import { useHistory } from "react-router";
@@ -77,11 +77,6 @@ export default function Header() {
           </div>
         </div>
       </header>
-      <img
-        src={Chaticon}
-        alt="chat"
-        className="fixed bottom-20 w-8 right-14 z-50"
-      />
     </>
   );
 }
