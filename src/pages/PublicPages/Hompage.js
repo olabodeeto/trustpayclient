@@ -58,10 +58,10 @@ export default function Hompage() {
       <div className={`${style.hero} `}>
         <div className="relative w-11/12 md:w-10/12 m-auto text-center mt-40">
           <p className=" text-gray-600 sm:w-6/12 m-auto">
-            MAKE PAYMENT WITH TRUST
+            MAKE PAYMENT WITH TRUST LINK
           </p>
           <p className=" w-10/12 text-3xl sm:text-6xl  text-gray-600 font-extrabold sm:w-6/12 m-auto">
-            Trusted & Secured way to pay online
+            Trusted & Secured way to trade online
           </p>
           <p
             className="w-20 h-20
