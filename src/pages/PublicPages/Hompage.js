@@ -56,7 +56,7 @@ export default function Hompage() {
       </header>
 
       <div className={`${style.hero} `}>
-        <div className="relative w-10/12 m-auto text-center mt-40">
+        <div className="relative w-11/12 md:w-10/12 m-auto text-center mt-40">
           <p className=" text-gray-600 sm:w-6/12 m-auto">
             MAKE PAYMENT WITH TRUST
           </p>
@@ -75,14 +75,14 @@ export default function Hompage() {
           <div className="mt-48 md:mt-60 m-auto flex gap-4 justify-center">
             <div
               className="flex justify-center items-center 
-              py-2 md:py-3 bg-purple-600 px-8 w-44 text-white rounded-lg"
+              py-2 md:py-3 bg-purple-600 px-8  text-white rounded-lg"
             >
               Get started
               {/* <img src={googleplayicon} alt="" className="w-6" /> */}
             </div>
             <div
               className="flex justify-center items-center 
-              py-2 md:py-3 border border-purple-700 bg-white px-8  w-44 rounded-lg"
+              py-2 md:py-3 border border-purple-700 bg-white px-8   rounded-lg"
             >
               Learn more
               {/* <img src={appstoreicon} alt="" className="w-6" /> */}
