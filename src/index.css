@@ -142,21 +142,21 @@
 @keyframes ball {
   0% {
     right: 0;
-    background: rgba(114, 11, 187, 0.64);
+    background: rgba(132, 97, 247, 0.537);
   }
 
   40% {
     right: 10rem;
-    background: rgba(88, 30, 205, 0.53);
+    background: rgba(132, 97, 247, 0.537);
   }
 
   80% {
     top: 10rem;
-    background: rgba(114, 11, 187, 0.64);
+    background: rgba(132, 97, 247, 0.537);
   }
   100% {
     right: 0;
-    background: rgba(114, 11, 187, 0.64);
+    background: rgba(132, 97, 247, 0.537);
   }
 }
 
@@ -189,21 +189,21 @@
   @keyframes ball {
     0% {
       right: 10rem;
-      background: rgba(114, 11, 187, 0.352);
+      background: rgba(132, 97, 247, 0.537);
     }
 
     40% {
       right: 30rem;
-      background: rgba(88, 30, 205, 0.349);
+      background: rgba(132, 97, 247, 0.537);
     }
 
     80% {
       top: 10rem;
-      background: rgba(88, 30, 205, 0.349);
+      background: rgba(132, 97, 247, 0.537);
     }
     100% {
       right: 10rem;
-      background: rgba(88, 30, 205, 0.349);
+      background: rgba(132, 97, 247, 0.537);
     }
   }
 }

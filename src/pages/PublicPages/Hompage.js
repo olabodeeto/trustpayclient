@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import style from "./Styles/Homepage.module.css";
-import googleplayicon from "../../Assets/googleplay.png";
-import appstoreicon from "../../Assets/appstore.png";
+// import googleplayicon from "../../Assets/googleplay.png";
+// import appstoreicon from "../../Assets/appstore.png";
 import frame9 from "../../Assets/Frame9.png";
 import abstact from "../../Assets/abstact.png";
 // import group2 from "../../Assets/Group2.png";
@@ -32,15 +32,14 @@ export default function Hompage() {
         <ul className={style.menu}>
           <div className={style.menulists}>
             <li>HOME</li>
-            <li>DOWNLOAD</li>
-            <li>HELP</li>
+            <li>Pricing</li>
             <li>HOW IT WORKS</li>
             <li>FAQ</li>
           </div>
           <div className={style.menubtncontainer}>
             <Link to="/login">
-              <button className="tp-default-btn">
-                <i className="far fa-user-circle"></i> ACCOUNT
+              <button className="px-14 py-3 border mb-3 border-white md:border-purple-700 rounded-md">
+                Login
               </button>
             </Link>
           </div>
@@ -67,15 +66,17 @@ export default function Hompage() {
           <div className="mt-48 md:mt-60 m-auto flex gap-4 justify-center">
             <div
               className="flex justify-center items-center 
-              py-2 md:py-3 bg-purple-600 px-8 rounded-full w-44"
+              py-2 md:py-3 bg-purple-600 px-8 w-44 text-white rounded-lg"
             >
-              <img src={googleplayicon} alt="" className="w-6" />
+              Get started
+              {/* <img src={googleplayicon} alt="" className="w-6" /> */}
             </div>
             <div
               className="flex justify-center items-center 
-              py-2 md:py-3 bg-purple-600 px-8 rounded-full w-44"
+              py-2 md:py-3 border border-purple-700 bg-white px-8  w-44 rounded-lg"
             >
-              <img src={appstoreicon} alt="" className="w-6" />
+              Learn more
+              {/* <img src={appstoreicon} alt="" className="w-6" /> */}
             </div>
           </div>
         </div>
@@ -89,7 +90,7 @@ export default function Hompage() {
           </h1>
           <div className="w-10/12 md:w-7/12 m-auto flex justify-center items-center">
             <Link to="/register">
-              <button className="mt-24 bg-purple-900 text-white py-3 px-10 md:px-20 rounded-full">
+              <button className="mt-24 bg-purple-900 text-white py-3 px-10 md:px-20 rounded-lg">
                 Get started
               </button>
             </Link>
@@ -207,7 +208,7 @@ export default function Hompage() {
 
           <div className="w-10/12 m-auto flex justify-center mt-20">
             <Link to="/register">
-              <button className="py-3 px-14 bg-purple-600 text-gray-50 rounded-full">
+              <button className="py-3 px-14 bg-purple-600 text-gray-50 rounded-lg">
                 Get started
               </button>
             </Link>
