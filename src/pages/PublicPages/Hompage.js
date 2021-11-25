@@ -73,13 +73,15 @@ export default function Hompage() {
           ></p>
 
           <div className="mt-48 md:mt-60 m-auto flex gap-4 justify-center">
-            <div
-              className="flex justify-center items-center 
+            <Link to="/register">
+              <div
+                className="flex justify-center items-center 
               py-2 md:py-3 bg-purple-600 px-8  text-white rounded-lg"
-            >
-              Get started
-              {/* <img src={googleplayicon} alt="" className="w-6" /> */}
-            </div>
+              >
+                Get started
+                {/* <img src={googleplayicon} alt="" className="w-6" /> */}
+              </div>
+            </Link>
             <div
               className="flex justify-center items-center 
               py-2 md:py-3 border border-purple-700 bg-white px-8   rounded-lg"
