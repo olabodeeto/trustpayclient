@@ -7,12 +7,12 @@ import abstact from "../../Assets/abstact.png";
 // import group2 from "../../Assets/Group2.png";
 import grp from "../../Assets/grp.png";
 // import frame13 from "../../Assets/Frame13.png";
-import icon22 from "../../Assets/icon22.png";
+// import icon22 from "../../Assets/icon22.png";
 import phone from "../../Assets/phone.svg";
-import phones from "../../Assets/phones.png";
-import purse from "../../Assets/purse.png";
-import appleicon from "../../Assets/appleicon.png";
-import playstore from "../../Assets/playstore.png";
+// import phones from "../../Assets/phones.png";
+// import purse from "../../Assets/purse.png";
+// import appleicon from "../../Assets/appleicon.png";
+// import playstore from "../../Assets/playstore.png";
 import facebook from "../../Assets/facebook.png";
 import instagram from "../../Assets/instagram.png";
 import linkedin from "../../Assets/linkedin.png";
@@ -108,7 +108,7 @@ export default function Hompage() {
         <div className="w-11/12 md:w-6/12">
           <img src={abstact} alt="" className="w-16 h-auto" />
           <div className="mt-20 md:mt-28">
-            <h1 className="text-4xl w-10/12 md:w-5/12 mt-20 font-bold text-purple-400">
+            <h1 className="text-4xl w-11/12 md:w-6/12 mt-20 font-bold text-purple-400 bg-blue-50 p-4">
               <span className="text-purple-600">WE MAKE YOU</span> FEARLESS
             </h1>
             <p className="mt-10 text-gray-500 w-10/12">
@@ -123,7 +123,7 @@ export default function Hompage() {
         </div>
       </div>
 
-      <div className="mt-40 bg-white w-11/12 md:w-10/12 m-auto hidden md:block">
+      {/* <div className="mt-40 bg-white w-11/12 md:w-10/12 m-auto hidden md:block">
         <div className="flex flex-col md:flex-row mb-20">
           <div className="w-11/12 md:w-6/12">
             <div className="mt-40 flex">
@@ -144,9 +144,9 @@ export default function Hompage() {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <div className="h-screen bg-white w-11/12 md:w-10/12 m-auto pt-24 md:hidden mb-40 md:mb-2">
+      {/* <div className="h-screen bg-white w-11/12 md:w-10/12 m-auto pt-24 md:hidden mb-40 md:mb-2">
         <div className="flex flex-col md:flex-row">
           <div className="w-11/12 md:w-6/12  mt-16 md:mt-20">
             <img src={icon22} alt="" className="w-16 h-auto" />
@@ -166,8 +166,8 @@ export default function Hompage() {
             <img src={purse} alt="" className="w-10/12 h-auto" />
           </div>
         </div>
-      </div>
-      <div className={style.downloadsection}>
+      </div> */}
+      {/* <div className={style.downloadsection}>
         <div className="h-screen pt-10 mt-20 relative">
           <div className="w-11/12 md:w-4/12 m-auto mt-16 lg:mt-40">
             <h1 className="text-center text-4xl font-bold text-purple-200">
@@ -198,7 +198,7 @@ export default function Hompage() {
             </button>
           </div>
         </div>
-      </div>
+      </div> */}
       <div>
         <div className="mt-40 m-auto w-10/12 mb-20">
           <h1 className="text-4xl text-center text-gray-500 flex flex-col font-bold">
