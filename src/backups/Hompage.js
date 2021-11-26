@@ -9,7 +9,6 @@ import abstact from "../../Assets/abstact.png";
 import grp from "../../Assets/grp.png";
 // import frame13 from "../../Assets/Frame13.png";
 import icon22 from "../../Assets/icon22.png";
-import phone from "../../Assets/phone.svg";
 import phones from "../../Assets/phones.png";
 import purse from "../../Assets/purse.png";
 import appleicon from "../../Assets/appleicon.png";
@@ -88,21 +87,26 @@ export default function Hompage() {
         </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row lg:w-9/12 m-auto lg:py-20">
-        <div className="flex justify-center items-center p-20">
-          <img src={phone} alt="" className="w-40 lg:w-64" />
-        </div>
-        <div
-          className="flex flex-col justify-center items-center 
-        lg:items-start  p-10"
-        >
-          <h2 className="text-4xl p-2 text-gray-600 bg-indigo-50">
+      <div className={style.getStarted}>
+        <div className="w-10/12 md:w-7/12 m-auto pt-40 md:pt-28">
+          <h1 className="text-white text-3xl md:text-5xl font-bold text-center">
+            {/* Welcome to the new era of digital trust payments */}
             Pay and get paid instantly
-          </h2>
-          <p className="p-2 mt-4 text-gray-500 lg:w-6/12">
-            Pay and get paid seemlessly using trustpay by creating and sharing
-            your trustpay payment links.
-          </p>
+          </h1>
+          <div className="w-10/12 md:w-7/12 m-auto flex justify-center items-center">
+            <Link to="/register">
+              <button className="mt-24 bg-purple-900 text-white py-3 px-10 md:px-20 rounded-lg">
+                Get started
+              </button>
+            </Link>
+          </div>
+          <div className="mt-32 w-full md:w-5/12 h-40 m-auto flex justify-center items-center">
+            <img
+              src={frame9}
+              alt=""
+              className="absolute w-full h-10/12  bottom-0 md:w-6/12 md:h-auto"
+            />
+          </div>
         </div>
       </div>
       <div className=" bg-white w-11/12 md:w-10/12 m-auto pt-24 flex flex-col md:flex-row">
