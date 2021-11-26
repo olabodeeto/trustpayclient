@@ -172,28 +172,40 @@ export default function Hompage() {
             <h3 className="text-xl font-extralight">Sellers</h3>
             <div className=" py-4 mt-8">
               <ul className="flex flex-col gap-4">
-                <li className="flex gap-4 mb-4">
-                  <CircleCheck size={24} />
+                <li className="flex gap-4 mb-4 w-full">
+                  <div className="w-1/12">
+                    <CircleCheck size={24} />
+                  </div>
                   <p>Create account on trustpayme</p>
                 </li>
-                <li className="flex gap-4 mb-4">
-                  <CircleCheck size={24} />
+                <li className="flex gap-4 mb-4 w-full">
+                  <div className="w-1/12">
+                    <CircleCheck size={24} />
+                  </div>
                   <p>Agree sales terms with the Buyer.</p>
                 </li>
-                <li className="flex gap-4 mb-4">
-                  <CircleCheck size={24} />
+                <li className="flex gap-4 mb-4 w-full">
+                  <div className="w-1/12">
+                    <CircleCheck size={24} />
+                  </div>
                   <p>Create and share trustpayme payment link with buyer.</p>
                 </li>
-                <li className="flex gap-4 mb-4">
-                  <CircleCheck size={24} />
+                <li className="flex gap-4 mb-4 w-full">
+                  <div className="w-1/12">
+                    <CircleCheck size={24} />
+                  </div>
                   <p>Wait for payment notification from buyer on trustpayme.</p>
                 </li>
-                <li className="flex gap-4 mb-4">
-                  <CircleCheck size={24} />
+                <li className="flex gap-4 mb-4 w-full">
+                  <div className="w-1/12">
+                    <CircleCheck size={24} />
+                  </div>
                   <p>Deliver the agreed product or service.</p>
                 </li>
-                <li className="flex gap-4 mb-4">
-                  <CircleCheck size={24} />
+                <li className="flex gap-4 mb-4 w-full">
+                  <div className="w-1/12">
+                    <CircleCheck size={24} />
+                  </div>
                   <p>Get paid.</p>
                 </li>
               </ul>
@@ -203,31 +215,43 @@ export default function Hompage() {
             <h3 className="text-xl font-extralight">Buyers</h3>
             <div className="py-4 mt-8">
               <ul className="flex flex-col gap-4">
-                <li className="flex gap-4 mb-4">
-                  <CircleCheck size={24} />
+                <li className="flex gap-4 mb-4 w-full">
+                  <div className="w-1/12">
+                    <CircleCheck size={24} />
+                  </div>
                   <p>Create account on trustpayme</p>
                 </li>
-                <li className="flex gap-4 mb-4">
-                  <CircleCheck size={24} />
+                <li className="flex gap-4 mb-4 w-full">
+                  <div className="w-1/12">
+                    <CircleCheck size={24} />
+                  </div>
                   <p>Agree sales terms with the Seller.</p>
                 </li>
-                <li className="flex gap-4 mb-4">
-                  <CircleCheck size={24} />
+                <li className="flex gap-4 mb-4 w-full">
+                  <div className="w-1/12">
+                    <CircleCheck size={24} />
+                  </div>
                   <p>Request trustpayme payment link from Seller.</p>
                 </li>
-                <li className="flex gap-4 mb-4">
-                  <CircleCheck size={24} />
+                <li className="flex gap-4 mb-4 w-full">
+                  <div className="w-1/12">
+                    <CircleCheck size={24} />
+                  </div>
                   <p>
                     Make payment using the received payment link (Your payment
                     will be held in escrow)
                   </p>
                 </li>
-                <li className="flex gap-4 mb-4">
-                  <CircleCheck size={24} />
+                <li className="flex gap-4 mb-4 w-full">
+                  <div className="w-1/12">
+                    <CircleCheck size={24} />
+                  </div>
                   <p>Wait for delivery of product or service from Seller.</p>
                 </li>
-                <li className="flex gap-4 mb-4">
-                  <CircleCheck size={24} />
+                <li className="flex gap-4 mb-4 w-full">
+                  <div className="w-1/12">
+                    <CircleCheck size={24} />
+                  </div>
                   <p>Confirm order, Seller get paid.</p>
                 </li>
               </ul>
