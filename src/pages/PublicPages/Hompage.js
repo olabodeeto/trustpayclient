@@ -21,6 +21,7 @@ import facebook from "../../Assets/facebook.png";
 import instagram from "../../Assets/instagram.png";
 import linkedin from "../../Assets/linkedin.png";
 import twitter from "../../Assets/twitter.png";
+import { CircleCheck } from "akar-icons";
 
 export default function Hompage() {
   return (
@@ -63,6 +64,11 @@ export default function Hompage() {
           <p className=" w-10/12 text-3xl  sm:text-6xl  text-gray-600 font-extrabold sm:w-6/12 m-auto">
             Trusted & Secured way to trade online
           </p>
+          <div className="mt-10">
+            <p className="text-2xl md:text-3xl font-extralight">
+              Secure your next purchase.
+            </p>
+          </div>
           <p
             className="w-20 h-20
            rounded-full bg-opacity-30 absolute top-0 balls "
@@ -95,7 +101,7 @@ export default function Hompage() {
         <div className="flex flex-col lg:flex-row lg:w-10/12 m-auto">
           <div className="lg:w-6/12 px-4">
             <div className="mb-10">
-              <h2 className="text-4xl text-gray-600 bg-blue-50 inline pr-4 pt-4 pb-4">
+              <h2 className="text-4xl text-gray-600 font-extralight bg-blue-50 inline pr-4 pt-4 pb-4">
                 Why trustpay?
               </h2>
             </div>
@@ -156,7 +162,7 @@ export default function Hompage() {
           className="flex flex-col justify-center items-center 
         lg:items-start  p-10"
         >
-          <h2 className="text-4xl p-2 text-gray-600 bg-indigo-50">
+          <h2 className="text-4xl font-extralight p-2 text-gray-600 bg-indigo-50">
             Pay and get paid instantly
           </h2>
           <p className="p-2 mt-4 text-gray-500 lg:w-6/12">
@@ -165,106 +171,85 @@ export default function Hompage() {
           </p>
         </div>
       </div>
-      <div className=" bg-white w-11/12 md:w-10/12 m-auto pt-24 flex flex-col md:flex-row">
-        <div className="w-11/12 md:w-6/12">
-          <img src={abstact} alt="" className="w-16 h-auto" />
-          <div className="mt-20 md:mt-28">
-            <h1 className="text-4xl w-11/12 md:w-6/12 mt-20 font-bold text-purple-400 bg-blue-50 p-4">
-              <span className="text-purple-600">WE MAKE YOU</span> FEARLESS
-            </h1>
-            <p className="mt-10 text-gray-500 w-10/12">
-              Paying sellers online just got easier with us. We take away the
-              fear of loosing your funds to fake sellers online by holding it
-              till you get what you paid for.
-            </p>
+
+      <div className="py-20">
+        <h2 className="text-center text-3xl text-gray-600 font-extralight">
+          How it works
+        </h2>
+        <div className="flex flex-col gap-4 lg:flex-row lg:w-10/12 m-auto mt-16">
+          <div className="lg:w-6/12 bg-red-50 p-4 rounded-lg">
+            <h3 className="text-xl font-extralight">Sellers</h3>
+            <div className=" py-4 mt-8">
+              <ul className="flex flex-col gap-4">
+                <li className="flex gap-4 mb-4">
+                  <CircleCheck size={24} />
+                  <p>Create account on trustpayme</p>
+                </li>
+                <li className="flex gap-4 mb-4">
+                  <CircleCheck size={24} />
+                  <p>Agree sales terms with the Buyer.</p>
+                </li>
+                <li className="flex gap-4 mb-4">
+                  <CircleCheck size={24} />
+                  <p>Create and share trustpayme payment link with buyer.</p>
+                </li>
+                <li className="flex gap-4 mb-4">
+                  <CircleCheck size={24} />
+                  <p>Wait for payment notification from buyer on trustpayme.</p>
+                </li>
+                <li className="flex gap-4 mb-4">
+                  <CircleCheck size={24} />
+                  <p>Deliver the agreed product or service.</p>
+                </li>
+                <li className="flex gap-4 mb-4">
+                  <CircleCheck size={24} />
+                  <p>Get paid.</p>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
-        <div className="w-11/12 md:w-6/12 flex justify-center mt-10">
-          <img src={grp} alt="" className="w-9/12 md:w-5/12 h-auto" />
+          <div className="lg:w-6/12 bg-indigo-50 p-4 rounded-lg">
+            <h3 className="text-xl font-extralight">Buyers</h3>
+            <div className="py-4 mt-8">
+              <ul className="flex flex-col gap-4">
+                <li className="flex gap-4 mb-4">
+                  <CircleCheck size={24} />
+                  <p>Create account on trustpayme</p>
+                </li>
+                <li className="flex gap-4 mb-4">
+                  <CircleCheck size={24} />
+                  <p>Agree sales terms with the Seller.</p>
+                </li>
+                <li className="flex gap-4 mb-4">
+                  <CircleCheck size={24} />
+                  <p>Request trustpayme payment link from Seller.</p>
+                </li>
+                <li className="flex gap-4 mb-4">
+                  <CircleCheck size={24} />
+                  <p>
+                    Make payment using the received payment link (Your payment
+                    will be held in escrow)
+                  </p>
+                </li>
+                <li className="flex gap-4 mb-4">
+                  <CircleCheck size={24} />
+                  <p>Wait for delivery of product or service from Seller.</p>
+                </li>
+                <li className="flex gap-4 mb-4">
+                  <CircleCheck size={24} />
+                  <p>Confirm order, Seller get paid.</p>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* <div className="mt-40 bg-white w-11/12 md:w-10/12 m-auto hidden md:block">
-        <div className="flex flex-col md:flex-row mb-20">
-          <div className="w-11/12 md:w-6/12">
-            <div className="mt-40 flex">
-              <img src={purse} alt="" className="w-8/12 h-auto" />
-            </div>
-          </div>
-          <div className="xl:w-6/12 w-8/12 mt-10">
-            <img src={icon22} alt="" className="w-16 h-auto mb-10" />
-            <h1 className="text-4xl lg:w-6/12 md:10/12 mt-28 font-bold text-gray-400">
-              <span className="text-gray-600 mr-2">
-                EASIEST AND SAFEST WAY OF RECEIVING
-              </span>
-              PAYMENTS
-            </h1>
-
-            <p className="mt-5 text-gray-500 w-10/12">
-              Receive payment through payment link or your email
-            </p>
-          </div>
-        </div>
-      </div> */}
-
-      {/* <div className="h-screen bg-white w-11/12 md:w-10/12 m-auto pt-24 md:hidden mb-40 md:mb-2">
-        <div className="flex flex-col md:flex-row">
-          <div className="w-11/12 md:w-6/12  mt-16 md:mt-20">
-            <img src={icon22} alt="" className="w-16 h-auto" />
-            <div className="md:mt-28">
-              <h1 className="text-4xl mt-24 md:mt-28 font-bold text-gray-400 flex flex-col md:flex-row">
-                <span className="text-gray-600 mr-2 w-full md:w-6/12">
-                  EASIEST AND SAFEST WAY OF RECEIVING
-                </span>
-                <span>PAYMENTS</span>
-              </h1>
-              <p className="mt-5 text-gray-500 w-10/12">
-                Receive payment through payment link or your email
-              </p>
-            </div>
-          </div>
-          <div className="mt-20 w-11/12 md:w-6/12 flex justify-center items-center">
-            <img src={purse} alt="" className="w-10/12 h-auto" />
-          </div>
-        </div>
-      </div> */}
-      {/* <div className={style.downloadsection}>
-        <div className="h-screen pt-10 mt-20 relative">
-          <div className="w-11/12 md:w-4/12 m-auto mt-16 lg:mt-40">
-            <h1 className="text-center text-4xl font-bold text-purple-200">
-              YOU CAN USE OUR APP ON{" "}
-              <span className="text-purple-400">YOUR DEVICE</span>
-            </h1>
-          </div>
-          <div className="mt-40 lg:mt-2 w-4/12 m-auto">
-            <img
-              src={phones}
-              alt=""
-              className="absolute left-0 md:left-1/4 md:ml-16 lg:left-60 xl:ml-60 lg:ml-28 w-full h-8/12  bottom-40 md:w-4/12 md:h-auto"
-            />
-          </div>
-          <div className="absolute left-0 right-0 bottom-20 mt-20 w-11/12 md:w-4/12 m-auto flex justify-center gap-4 text-center">
-            <button
-              className="py-3 px-14 w-10/12 bg-purple-900 text-gray-50 rounded-full
-            flex justify-center items-center"
-            >
-              <img src={appleicon} alt="" className="w-4/12 md:w-3/12" />
-            </button>
-
-            <button
-              className="py-3 px-14 w-10/12 bg-purple-900 text-gray-50 rounded-full
-            flex justify-center items-center"
-            >
-              <img src={playstore} alt="" className="w-4/12 md:w-3/12" />
-            </button>
-          </div>
-        </div>
-      </div> */}
       <div>
         <div className="mt-40 m-auto w-10/12 mb-20">
-          <h1 className="text-4xl text-center text-gray-500 flex flex-col font-bold">
+          <h1 className="text-4xl font-extralight text-center text-gray-500 flex flex-col">
             <span> Get early </span>
-            <span className="text-purple-400">access right now</span>
+            <span className="text-purple-400 ">access right now</span>
           </h1>
 
           <div className="w-10/12 m-auto flex justify-center mt-20">
