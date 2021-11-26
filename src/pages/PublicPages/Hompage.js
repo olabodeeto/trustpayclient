@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import style from "./Styles/Homepage.module.css";
 // import googleplayicon from "../../Assets/googleplay.png";
 // import appstoreicon from "../../Assets/appstore.png";
-import frame9 from "../../Assets/Frame9.png";
 import abstact from "../../Assets/abstact.png";
 // import group2 from "../../Assets/Group2.png";
 import grp from "../../Assets/grp.png";
