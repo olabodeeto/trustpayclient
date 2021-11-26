@@ -261,16 +261,16 @@ export default function Hompage() {
       </div>
 
       <div>
-        <div className="mt-40 m-auto w-10/12 mb-20">
-          <h1 className="text-4xl font-extralight text-center text-gray-500 flex flex-col">
-            <span> Get early </span>
-            <span className="text-purple-400 ">access right now</span>
+        <div className="mt-40 m-auto w-11/12 lg:w-10/12 mb-20 bg-purple-700 py-20">
+          <h1 className="text-5xl px-10 font-extralight  text-gray-50 flex flex-col">
+            What are you waiting for ?
           </h1>
+          <p className="px-12 text-white pt-5">Lets get you started</p>
 
-          <div className="w-10/12 m-auto flex justify-center mt-20">
+          <div className="w-11/12 m-auto flex justify-center lg:justify-start   mt-20">
             <Link to="/register">
-              <button className="py-3 px-14 bg-purple-600 text-gray-50 rounded-lg">
-                Get started
+              <button className="py-3 px-10 bg-white text-gray-800 rounded-md">
+                Create free account
               </button>
             </Link>
           </div>
