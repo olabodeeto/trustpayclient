@@ -1,22 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import style from "./Styles/Homepage.module.css";
-// import googleplayicon from "../../Assets/googleplay.png";
-// import appstoreicon from "../../Assets/appstore.png";
-import abstact from "../../Assets/abstact.png";
-// import group2 from "../../Assets/Group2.png";
-import grp from "../../Assets/grp.png";
 import reg from "../../Assets/reg.svg";
 import sec from "../../Assets/sec.svg";
 import swi from "../../Assets/swi.svg";
 import us from "../../Assets/us.svg";
-// import frame13 from "../../Assets/Frame13.png";
-// import icon22 from "../../Assets/icon22.png";
+
 import phone from "../../Assets/phone.svg";
-// import phones from "../../Assets/phones.png";
-// import purse from "../../Assets/purse.png";
-// import appleicon from "../../Assets/appleicon.png";
-// import playstore from "../../Assets/playstore.png";
+
 import facebook from "../../Assets/facebook.png";
 import instagram from "../../Assets/instagram.png";
 import linkedin from "../../Assets/linkedin.png";
