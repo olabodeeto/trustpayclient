@@ -6,6 +6,10 @@ import style from "./Styles/Homepage.module.css";
 import abstact from "../../Assets/abstact.png";
 // import group2 from "../../Assets/Group2.png";
 import grp from "../../Assets/grp.png";
+import reg from "../../Assets/reg.svg";
+import sec from "../../Assets/sec.svg";
+import swi from "../../Assets/swi.svg";
+import us from "../../Assets/us.svg";
 // import frame13 from "../../Assets/Frame13.png";
 // import icon22 from "../../Assets/icon22.png";
 import phone from "../../Assets/phone.svg";
@@ -21,7 +25,7 @@ import twitter from "../../Assets/twitter.png";
 export default function Hompage() {
   return (
     <>
-      <header className={`${style.header} bg-white`}>
+      <header className={`${style.header} bg-white shadow`}>
         <input type="checkbox" id={style.checkbox} />
         <div className={style.logo}>
           trust<span className="text-yellow-500">pay</span>
@@ -82,6 +86,63 @@ export default function Hompage() {
               py-2 md:py-3 border border-purple-700 bg-white px-8   rounded-lg"
             >
               Learn more
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="py-40 bg-gray-50">
+        <div className="flex flex-col lg:flex-row lg:w-10/12 m-auto">
+          <div className="lg:w-6/12 px-4">
+            <div className="mb-10">
+              <h2 className="text-4xl text-gray-600 bg-blue-50 inline pr-4 pt-4 pb-4">
+                Why trustpay?
+              </h2>
+            </div>
+            <p className="mb-4 text-gray-500">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt,
+              quidem! Obcaecati deleniti ab aliquid earum rem voluptas,
+              dignissimos illum cupiditate quas suscipit nulla ncidunt voluptate
+              harum laboriosam pariatur, at esse?
+            </p>
+            <p className="mb-4 text-gray-500">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt,
+              quidem! Obcaecati deleniti ab aliquid earum rem voluptas,
+              dignissimos illum cupiditate quas suscipit nulla ncidunt voluptate
+              harum laboriosam pariatur, at esse?
+            </p>
+          </div>
+          <div className="mt-10 lg:mt-0 pl-5 lg:pl-10 lg:border-l-4 border-purple-700">
+            <div className="flex mb-6 gap-5">
+              <div>
+                <img src={reg} alt="" className="w-14" />
+              </div>
+
+              <p className="mt-4 text-xl text-gray-600">
+                Regulatory Compliance
+              </p>
+            </div>
+            <div className="flex mb-5 gap-5">
+              <div>
+                <img src={sec} alt="" className="w-14" />
+              </div>
+
+              <p className="mt-4 text-xl text-gray-600">Security First</p>
+            </div>
+            <div className="flex mb-5 gap-5">
+              <div>
+                <img src={swi} alt="" className="w-14" />
+              </div>
+
+              <p className="mt-4 text-xl text-gray-600">Swift Disbursement</p>
+            </div>
+
+            <div className="flex mb-5 gap-6 mt-4">
+              <div>
+                <img src={us} alt="" className="w-12" />
+              </div>
+
+              <p className="mt-4 text-xl text-gray-600">User’s support</p>
             </div>
           </div>
         </div>
