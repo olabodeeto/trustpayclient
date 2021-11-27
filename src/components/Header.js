@@ -33,7 +33,7 @@ export default function Header() {
           </div>
           <div className="flex flex-col md:flex-row md:gap-4">
             <Link to="/login">
-              <button className="px-14 py-3 border mb-3 border-white text-purple-700 font-extrabold ">
+              <button className="px-14 py-3 border mb-3 border-white text-white md:text-purple-700 font-extrabold ">
                 Login
               </button>
             </Link>
