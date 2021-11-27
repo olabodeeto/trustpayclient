@@ -1,14 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import style from "../pages/PublicPages/Styles/Homepage.module.css";
+import logo from "../Assets/logo.png";
 
 export default function Header() {
   return (
     <>
       <header className={`${style.header} bg-white shadow`}>
         <input type="checkbox" id={style.checkbox} />
-        <div className={style.logo}>
-          trust<span className="text-yellow-500">pay</span>
+        <div className={`${style.logo} flex gap-2`}>
+          <img src={logo} alt="" className="w-auto h-10" />
+          <span>
+            trust<span className="text-yellow-500">pay</span>
+          </span>
         </div>
         <label htmlFor={style.checkbox} className={style.menuicon}>
           <span className={style.navicon}></span>
