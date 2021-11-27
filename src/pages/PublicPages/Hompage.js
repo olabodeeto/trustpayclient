@@ -88,7 +88,7 @@ export default function Hompage() {
               <Link to="/about">Read more</Link>
             </p>
           </div>
-          <div className="mt-10 lg:mt-0 pl-5 lg:pl-10 lg:border-l-4 border-purple-700">
+          <div className="mt-28 md:mt-10 lg:mt-0 pl-5 lg:pl-10 lg:border-l-4 border-purple-700">
             <div className="flex mb-6 gap-5">
               <div>
                 <img src={reg} alt="" className="w-14" />
