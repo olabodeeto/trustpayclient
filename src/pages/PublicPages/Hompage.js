@@ -5,54 +5,24 @@ import reg from "../../Assets/reg.svg";
 import sec from "../../Assets/sec.svg";
 import swi from "../../Assets/swi.svg";
 import us from "../../Assets/us.svg";
-
 import phone from "../../Assets/phone.svg";
-
 import facebook from "../../Assets/facebook.png";
 import instagram from "../../Assets/instagram.png";
 import linkedin from "../../Assets/linkedin.png";
 import twitter from "../../Assets/twitter.png";
 import { CircleCheck } from "akar-icons";
+import Header from "../../components/Header";
 
 export default function Hompage() {
   return (
     <>
-      <header className={`${style.header} bg-white shadow`}>
-        <input type="checkbox" id={style.checkbox} />
-        <div className={style.logo}>
-          trust<span className="text-yellow-500">pay</span>
-        </div>
-        <label htmlFor={style.checkbox} className={style.menuicon}>
-          <span className={style.navicon}></span>
-        </label>
-        <ul className={style.menu}>
-          <div className={style.menulists}>
-            <li>HOME</li>
-            <li>PRICING</li>
-            <li>HOW IT WORKS</li>
-            <li>FAQ</li>
-          </div>
-          <div className="flex flex-col md:flex-row md:gap-4">
-            <Link to="/login">
-              <button className="px-14 py-3 border mb-3 border-white text-purple-700 font-extrabold ">
-                Login
-              </button>
-            </Link>
-            {/* <Link to="/register">
-              <button className="px-8 py-3 border mb-3 border-white md:bg-purple-700 md:text-white rounded-md">
-                Signup
-              </button>
-            </Link> */}
-          </div>
-        </ul>
-      </header>
-
+      <Header />
       <div className={`${style.hero} bg-indigo-50 `}>
         <div className="relative w-11/12 md:w-10/12 m-auto text-center mt-40">
           <p className=" text-gray-600 sm:w-6/12 m-auto">
             MAKE PAYMENT WITH TRUST LINK
           </p>
-          <p className=" w-10/12 text-3xl  sm:text-6xl  text-gray-600 font-extrabold sm:w-6/12 m-auto">
+          <p className=" w-10/12 text-3xl  lg:text-6xl  text-gray-600 font-extrabold sm:w-6/12 m-auto">
             Trusted & Secured way to trade online
           </p>
           <div className="mt-10">
@@ -78,12 +48,14 @@ export default function Hompage() {
                 Get started
               </div>
             </Link>
-            <div
-              className="flex justify-center items-center 
+            <Link to="/about">
+              <div
+                className="flex justify-center items-center 
               py-2 md:py-3 border border-purple-700 bg-white px-8   rounded-lg"
-            >
-              Learn more
-            </div>
+              >
+                Learn more
+              </div>
+            </Link>
           </div>
         </div>
       </div>
@@ -97,16 +69,23 @@ export default function Hompage() {
               </h2>
             </div>
             <p className="mb-4 text-gray-500">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt,
-              quidem! Obcaecati deleniti ab aliquid earum rem voluptas,
-              dignissimos illum cupiditate quas suscipit nulla ncidunt voluptate
-              harum laboriosam pariatur, at esse?
+              Research has shown that Over 10 Million of online transactions
+              happens daily with possibility of fraud, which is a serious issue.
+              This problem has placed limitations on economic activities in the
+              E- commerce and other business opportunities.
             </p>
             <p className="mb-4 text-gray-500">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt,
-              quidem! Obcaecati deleniti ab aliquid earum rem voluptas,
-              dignissimos illum cupiditate quas suscipit nulla ncidunt voluptate
-              harum laboriosam pariatur, at esse?
+              Things like receiving poor service or low quality products which
+              is totally different from what you paid for - is fraud.
+            </p>
+
+            <p className="mb-4 text-gray-500">
+              Excessive delay of your work or goods especially when it’s no
+              longer useful because the date has elapsed - is fraud.
+            </p>
+
+            <p>
+              <Link to="/about">Read more</Link>
             </p>
           </div>
           <div className="mt-10 lg:mt-0 pl-5 lg:pl-10 lg:border-l-4 border-purple-700">
