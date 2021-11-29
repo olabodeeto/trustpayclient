@@ -72,7 +72,7 @@ export default function BankAccModal({ show }) {
     <div>
       <div className="fixed w-full left-0 z-50 top-0 h-full  bg-gray-900 bg-opacity-80">
         <div
-          className="slideup w-11/12 sm:w-10/12 md:w-4/12 m-auto
+          className="slideup mt-28 w-11/12 sm:w-10/12 md:w-4/12 m-auto
      bg-white text-gray-500 p-4 rounded-lg min-h-96"
         >
           <h1 className="text-center sm:text-2xl text-gray-400">

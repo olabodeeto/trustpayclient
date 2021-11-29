@@ -63,8 +63,6 @@
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -20rem;
-  margin-bottom: 2rem;
   opacity: 0;
 }
 
@@ -75,7 +73,6 @@
   }
 
   to {
-    margin-bottom: 30rem;
     opacity: 1;
   }
 }

@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "./Profile.css";
-import ProfileHeader from "./ProfileHeader/ProfileHeader";
-import AvatarEditModal from "./ProfileModals/AvatarEdit/AvatarEditModal";
+// import ProfileHeader from "./ProfileHeader/ProfileHeader";
+// import AvatarEditModal from "./ProfileModals/AvatarEdit/AvatarEditModal";
 import Profileinfo from "./ProfileInfo/Profileinfo";
 import Header from "../components/Header";
 
 export default function Profile() {
-  const [showAvatarEdit, setshowAvatarEdit] = useState(false);
-  const handleShowAvatarEdit = () => {
-    setshowAvatarEdit(true);
-  };
+  // const [showAvatarEdit, setshowAvatarEdit] = useState(false);
+  // const handleShowAvatarEdit = () => {
+  //   setshowAvatarEdit(true);
+  // };
 
-  const handleClose = () => {
-    setshowAvatarEdit(!showAvatarEdit);
-  };
+  // const handleClose = () => {
+  //   setshowAvatarEdit(!showAvatarEdit);
+  // };
 
   useEffect(() => {
     window.scroll(0, 0);
@@ -24,11 +24,11 @@ export default function Profile() {
       <div className="bg-indigo-100 min-h-screen pb-10">
         <div className="pt-24">
           <div className="tp-user-profile">
-            {showAvatarEdit ? (
+            {/* {showAvatarEdit ? (
               <AvatarEditModal close={handleClose} />
             ) : (
               <ProfileHeader showEdit={handleShowAvatarEdit} />
-            )}
+            )} */}
             <Profileinfo />
           </div>
         </div>

@@ -76,7 +76,7 @@
   margin-left: 20px !important;
 
   background: white;
-  padding: 10px !important;
+  /* padding: 10px !important; */
   transition: all ease 0.8s;
   border-radius: 999px;
   text-align: center;
@@ -107,6 +107,16 @@
   flex-direction: column;
   margin-bottom: 28px !important;
 }
+
+.tp-home-tab-icon-home {
+  position: absolute;
+  background: #8a74fb;
+  color: white;
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+}
+
 .tp-home-tab-icon {
   position: absolute;
   background: #fb9474;

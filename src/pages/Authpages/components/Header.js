@@ -1,8 +1,8 @@
 import React from "react";
-import { Search, Bell, Home, Money, SignOut } from "akar-icons";
+import { Search, Bell, Home, Money, SignOut, Person } from "akar-icons";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import Avatar from "../Profile/Avatar/Avatar";
+// import Avatar from "../Profile/Avatar/Avatar";
 // import Chaticon from "../../../Assets/chat.png";
 import user from "../../../Api/User";
 import "../style/Header.css";
@@ -32,10 +32,13 @@ export default function Header() {
         <label htmlFor="tp-header-check" className="tp-m-menu-icon">
           <span className="tp-m-nav-icon"></span>
         </label>
-        <ul className="tp-m-menu">
+        <ul className="tp-m-menu p-12">
           <li>
             <Link to="/profile">
-              <Avatar />
+              {/* <Avatar /> */}
+              <div className="tp-header-tab-icon mt-10">
+                <Person size={24} className="tp-home-tab-icon-home" />
+              </div>
             </Link>
           </li>
           <li>

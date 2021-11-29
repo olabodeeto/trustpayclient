@@ -24,7 +24,7 @@ export default function PaymentModal() {
       className={`${hidden} fixed w-full top-0 h-full z-50  bg-gray-900 bg-opacity-80`}
     >
       <div
-        className="slideupp w-11/12 sm:w-10/12 md:w-4/12 m-auto
+        className="slideup w-11/12 sm:w-10/12 md:w-4/12 m-auto
      bg-white p-4 rounded-lg min-h-96"
       >
         <h1 className="text-center text-28 sm:text-3xl text-gray-500">
