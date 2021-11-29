@@ -2,8 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import style from "../pages/PublicPages/Styles/Homepage.module.css";
 import logo from "../Assets/logo.png";
+import { useScrollSection } from "react-scroll-section";
 
 export default function Header() {
+  const homeSection = useScrollSection("home");
+  const howSection = useScrollSection("how");
+  const aboutSection = useScrollSection("about");
   return (
     <>
       <header className={`${style.header} bg-white shadow`}>
@@ -19,16 +23,16 @@ export default function Header() {
         </label>
         <ul className={style.menu}>
           <div className={style.menulists}>
-            <li>
+            <li onClick={homeSection.onClick} selected={homeSection.selected}>
               <Link to="/">HOME</Link>
             </li>
-            <li>
-              <Link to="/About">ABOUT</Link>
+            <li onClick={aboutSection.onClick} selected={aboutSection.selected}>
+              <Link to="/#about">ABOUT</Link>
             </li>
             <li>
               <Link to="/Pricing">PRICING</Link>
             </li>
-            <li>
+            <li onClick={howSection.onClick} selected={howSection.selected}>
               <Link to="/#howitworks">HOW IT WORKS</Link>
             </li>
             <li>
