@@ -6,13 +6,9 @@ export default function Pricing() {
   const [amount, setamount] = useState(2000);
   const [topay, settopay] = useState("");
 
-  const calc = () => {
+  useEffect(() => {
     const sum = (2.5 / 100) * amount;
     settopay(sum + 200);
-  };
-
-  useEffect(() => {
-    calc();
   }, [amount]);
   return (
     <>

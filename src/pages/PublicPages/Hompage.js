@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import style from "./Styles/Homepage.module.css";
 import reg from "../../Assets/reg.svg";
@@ -16,7 +16,6 @@ import { ScrollingProvider, Section } from "react-scroll-section";
 import Pricing from "../../components/Pricing";
 
 export default function Hompage() {
-  const [amount, setamount] = useState("");
   return (
     <>
       <ScrollingProvider>
