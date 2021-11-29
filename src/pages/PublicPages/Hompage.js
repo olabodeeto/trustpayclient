@@ -288,9 +288,11 @@ export default function Hompage() {
                       <span className="w-6/12">Fee:</span>
                       <span className="w-6/12">0.00</span>
                     </div>
-                    <div className="flex mt-4 justify-center items-center bg-yellow-500 px-2 py-3 rounded-md text-white">
-                      Get started
-                    </div>
+                    <Link to="/register">
+                      <div className="flex mt-4 justify-center items-center bg-yellow-500 px-2 py-3 rounded-md text-white">
+                        Get started
+                      </div>
+                    </Link>
                   </form>
                 </div>
               </div>
@@ -299,7 +301,7 @@ export default function Hompage() {
         </Section>
 
         <div>
-          <div className="mt-40 m-auto w-11/12 lg:w-10/12 mb-20 bg-purple-700 py-20">
+          <div className="mt-40 m-auto w-11/12 lg:w-10/12 mb-20 bg-purple-700 py-20 rounded-lg">
             <h1 className="text-5xl px-10 font-extralight  text-gray-50 flex flex-col">
               What are you waiting for ?
             </h1>
