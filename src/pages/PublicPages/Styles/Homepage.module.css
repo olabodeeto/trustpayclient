@@ -92,8 +92,8 @@
   min-height: 100vh;
   padding-top: 10vh;
   padding-bottom: 20px;
-  /* background: url("../../../Assets/herobg.png");
-  background-size: contain; */
+  background: url("../../../Assets/herobg.png");
+  background-size: contain;
 }
 
 .getStarted {

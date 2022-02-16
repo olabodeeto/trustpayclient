@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Dashboard from "../pages/Authpages/Dashboard/Dashboard";
 import Transaction from "../pages/Authpages/Transaction/Transaction";
-import Errorpage from "../pages/Errorpage";
+// import Errorpage from "../pages/Errorpage";
 import Action from "../pages/Authpages/Action";
 import Profile from "../pages/Authpages/Profile/Profile";
 import Createlink from "../pages/Authpages/CreateLink/Createlink";
@@ -22,7 +22,7 @@ export default function AuthNavigations() {
         <Route exact path="/pay/:id" component={Pay} />
         <Route exact path="/verify" component={Verify} />
         <Route exact path="/settings" component={Settings} />
-        <Route exact path="*" component={Errorpage} />
+        {/* <Route exact path="*" component={Errorpage} /> */}
       </Switch>
     </>
   );

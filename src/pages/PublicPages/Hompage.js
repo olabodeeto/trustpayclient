@@ -23,11 +23,13 @@ export default function Hompage() {
         <Section id="home">
           <div className={`${style.hero} bg-indigo-50 `}>
             <div className="relative w-11/12 md:w-10/12 m-auto text-center mt-40">
-              <p className=" text-gray-600 sm:w-6/12 m-auto">
-                MAKE PAYMENT WITH TRUST LINK
-              </p>
               <p className=" w-10/12 text-3xl  lg:text-6xl  text-gray-600 font-extrabold sm:w-6/12 m-auto">
-                Trusted & Secured way to trade online
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-red-400 to-teal-500">
+                  Trusted &amp; Secured
+                </span>
+              </p>
+              <p class="mt-2 w-10/12 text-3xl lg:text-6xl text-gray-900 font-extrabold sm:w-6/12 m-auto">
+                way to make payment
               </p>
               <div className="mt-10">
                 <p className="text-2xl md:text-3xl font-extralight">
